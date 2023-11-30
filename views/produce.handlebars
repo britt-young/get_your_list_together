@@ -1,0 +1,52 @@
+{{!-- Page for find produce & adding to cart --}}
+<div class="produce-page">
+  <div class="product-search">
+    <h2>Search for foods</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="bread, lettuce, tomatoes" id="input" />
+      <button type="submit" id="submit-button">Search</button>
+    </div>
+
+    <div class="results">
+      <div class="product">
+        <img
+          src="../public/example-images/milk-large.png"
+          alt="Fat Free Skim Milk"
+        />
+        <h3 id="name">Fat Free Skim Milk</h3>
+        <h3 id="price">$2.79</h3>
+        <button>+</button>
+      </div>
+      <div class="product">
+        <img
+          src="../public/example-images/milk-small.png"
+          alt="Fat Free Skim Milk"
+        />
+        <h3 id="name">Fat Free Skim Milk</h3>
+        <h3 id="price">$0.99</h3>
+        <button>+</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="shopping-cart">
+    <h2>My Shopping Cart</h2>
+
+    <div class="groceries">
+      <div class="item">
+        <h3 id="name">Iceberg Lettuce</h3>
+        <h3 id="price">$1.79</h3>
+        <button>-</button>
+      </div>
+      <div class="item">
+        <h3 id="name">Large White Eggs</h3>
+        <h3 id="price">$2.19</h3>
+        <button>-</button>
+      </div>
+    </div>
+    
+    <button>Save Cart</button>
+    <a href="/cart"><button>View My Cart</button></a>
+  </div>
+</div>
