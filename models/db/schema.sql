@@ -1,2 +1,14 @@
-DROP DATABASE IF EXISTS ;
-CREATE DATABASE ;
+-- Create a database
+CREATE DATABASE IF NOT EXISTS members_db;
+USE members_db;
+
+-- Create a table of user information
+CREATE TABLE IF NOT EXISTS users (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(16) NOT NULL UNIQUE,
+    password VARCHAR(16) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    zip VARCHAR(5) NOT NULL,
+    PRIMARY KEY (id)
+);
+-- Validation for users table in 
