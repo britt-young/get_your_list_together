@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("../../models");
 
+    //User signup route
 router.post("/signup", async (req, res) => {
   try {
     //Validate the users data
@@ -28,6 +29,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+    //User login route
 /* 
 router.post('/login', async (req, res) => {
     try {
