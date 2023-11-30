@@ -1,37 +1,34 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { User } = require('../../models');
+const { User } = require("../../models");
 
-router.post('/signup', async (req, res) => {
-try{
+router.post("/signup", async (req, res) => {
+  try {
     //Validate the users data
-    const {username, password, email, zip} = req.body;
+    const { username, password, email, zip } = req.body;
 
     //Create the new user if validation passes
-    const newUser = await User.create({ username, password, email, zip});
+    const newUser = await User.create({ username, password, email, zip });
 
-    //res.json(newUser);
-    //catch(error){
-    //console.error(error);
-   
+    // Other logic for successful registration
+    res.json(newUser);
+  } catch (error) {
+    console.error(error);
+
     //Handle validation errors
-    if (error.name === 'SequelizeValidationError') {
-        const validationErrors = error.errors.map((err) => ({
-          field: err.path,
-          message: err.message,
-        }));
-        res.status(400).json({ errors: validationErrors });
-      } else {
-        res.status(500).json({ error: 'Failed to create user' });
-      }
-}
+    if (error.name === "SequelizeValidationError") {
+      const validationErrors = error.errors.map((err) => ({
+        field: err.path,
+        message: err.message,
+      }));
+      res.status(400).json({ errors: validationErrors });
+    } else {
+      res.status(500).json({ error: "Failed to create user" });
+    }
+  }
 });
 
-
-
-
-
-
+/* 
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
@@ -73,3 +70,4 @@ router.post('/login', async (req, res) => {
       res.status(404).end();
     }
   });
+ */
