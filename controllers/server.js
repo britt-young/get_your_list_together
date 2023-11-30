@@ -1,6 +1,11 @@
+const path = ('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const routes = require('./');
+const helpers = require('../utils/helpers');
+const sequelize = require('../config/connection');
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Set Handlebars as the default templating engine
@@ -17,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // Start the Express server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-});
+
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });

@@ -1,0 +1,1 @@
+// sequelize (lowercase) references our connection to the DB
