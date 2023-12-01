@@ -21,7 +21,7 @@ const sess = {
         maxAge: 300000,
         httpOnly: true,
         secure: false,
-        sameSite: 'strict',
+        // sameSite: 'strict',
       },
       resave: false,
       saveUninitialized: true,
@@ -37,7 +37,7 @@ const sess = {
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, '/public')));
   app.use(routes);
 
 // // Sequelize
