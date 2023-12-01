@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    padding: 1% 2%;
+    background-color: green;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;  
+}
+
+#name {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    padding: 1% 2%;
+    background-color: green;
+    color: white;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;  
+}
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+header, footer {
+    width: auto;
+    height: 50px;
+    background-color: green;
+    color: white;
+    padding: 2%;
+}
+
+header a {
+    padding: 1% 2%;
+    background-color: white;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;
+}
+header button {
+    background-color: transparent;
+    color: green;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: auto;
+}
+
+main {
+    padding: 2%;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.landing-content{
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto 0 auto;
+    padding: 3%;
+}
+
+.produce-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-search, .shopping-cart {
+    border: 2px solid green;
+    border-radius: 10px;
+    width: 45%;
+    height:auto;
+    min-height: 70vh;
+    padding: 1%;
+}
+.groceries {
+    min-height: 90%;
+}
+.search-bar {
+    margin: 2% 0;
+}
+
+.search-bar input {
+    width: 50%;
+    padding: 1%;
+}
+
+.product {
+    text-align: left;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% 0;
+}
+
+.product img {
+    width: 100px;
+    height: auto;
+}
+
+.item {
+    text-align: left;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% 0;
+}
+
+
+.login-account, .create-account {
+    margin: 2% auto;
+    border: 2px solid green;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+    padding: 2%;
+}
+
+.login-form div, .signup-form div {
+    display: block;
+    width: 100%;
+    padding: 2% 1%;
+}
+
+.budget {
+    margin: 2% auto;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 350px;
+}
+
+.cart-results {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.total-section {
+    text-align: left;
+    width: 100%;
+    margin: auto;
+    max-width: 650px;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.total-section h3 {
+    /* border-top: 2px solid black; */
+    margin-bottom: 2%;
+}
+
+footer {
+    text-align: center;
+    height: auto;
+}
