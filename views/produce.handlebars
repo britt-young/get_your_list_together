@@ -1,4 +1,4 @@
-{{!-- Page for find produce & adding to cart --}}
+{{! Page for find produce & adding to cart }}
 <div class="produce-page">
   <div class="product-search">
     <h2>Search for foods</h2>
@@ -9,21 +9,20 @@
 
     <div class="results">
       <div class="product">
-        <img
-          src="../public/example-images/milk-large.png"
-          alt="Fat Free Skim Milk"
-        />
-        <h3 id="name">Fat Free Skim Milk</h3>
-        <h3 id="price">$2.79</h3>
+        <img src="/example-images/milk-large.png" alt="Fat Free Skim Milk" />
+        <div>
+          <h3 id="name">Fat Free Skim Milk</h3>
+          <h3 id="price">$2.79</h3>
+        </div>
+
         <button>+</button>
       </div>
       <div class="product">
-        <img
-          src="../public/example-images/milk-small.png"
-          alt="Fat Free Skim Milk"
-        />
-        <h3 id="name">Fat Free Skim Milk</h3>
-        <h3 id="price">$0.99</h3>
+        <img src="/example-images/milk-small.png" alt="Fat Free Skim Milk" />
+        <div>
+          <h3 id="name">Fat Free Skim Milk</h3>
+          <h3 id="price">$0.99</h3>
+        </div>
         <button>+</button>
       </div>
 
@@ -45,8 +44,61 @@
         <button>-</button>
       </div>
     </div>
-    
+
     <button>Save Cart</button>
     <a href="/cart"><button>View My Cart</button></a>
   </div>
 </div>
+
+
+
+{{!-- REPLACE ABOVE CODE WITH BELOW CODE (with appropriate adjustments) WHEN YOU HAVE FILES/DATA --}}
+{{!-- <div class="produce-page">
+  <div class="product-search">
+    <h2>Search for foods</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="bread, lettuce, tomatoes" id="input" />
+      <button type="submit" id="submit-button">Search</button>
+    </div>
+
+    <div class="results">
+    {{#each as || }}
+      <div class="product">
+        <img src=`{{.link}}` alt=`{{.description}}` />
+        <div>
+          <h3 id="name">{{.name}}</h3>
+          <h3 id="price">{{.price}}</h3>
+        </div>
+        <div class="recipe-buttons">
+          <a
+            id="choice"
+            href=`{{.link}}`
+            target="_blank"
+          ><button>See How To Cook</button></a>
+          <button id="choice">Save</button>
+        </div>
+      </div>
+      {{/each}}
+      </div>
+  </div>
+
+  <div class="shopping-cart">
+    <h2>My Shopping Cart</h2>
+
+    <div class="groceries">
+      <div class="item">
+        <h3 id="name">Iceberg Lettuce</h3>
+        <h3 id="price">$1.79</h3>
+        <button>-</button>
+      </div>
+      <div class="item">
+        <h3 id="name">Large White Eggs</h3>
+        <h3 id="price">$2.19</h3>
+        <button>-</button>
+      </div>
+    </div>
+
+    <button>Save Cart</button>
+    <a href="/cart"><button>View My Cart</button></a>
+  </div>
+</div> --}}
