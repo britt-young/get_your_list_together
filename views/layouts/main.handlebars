@@ -9,12 +9,16 @@
   <body>
     <header>
         <div class="header-content">
-            <a id="name" href="homepage"><h1>Get Your List Together!</h1></a>
+            <a id="nav-link" href="homepage"><h1>Get Your List Together!</h1></a>
+            {{#if logged_in}}
+            <a id="logout"><button>Logout</button></a>
+            {{else}}
             <a href="login"><button>Login</button></a>
+            {{/if}}
         </div>
     </header>
     <main>
-      {{!-- Render the sub layout --}}
+      {{!-- render content --}}
       {{{ body }}}
     </main>
 
