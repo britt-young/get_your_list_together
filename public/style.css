@@ -3,43 +3,6 @@
     margin: 0;
 }
 
-a {
-    padding: 1% 2%;
-    background-color: green;
-    margin: 0;
-    border: 0;
-    border-radius: 10px;  
-}
-
-#name, #nav-link {
-    background-color: transparent;
-    text-decoration: none;
-    color: black;
-    margin: 0;
-    padding: 0;
-}
-
-#name, #price {
-    margin: auto;
-}
-
-#nav-link{
-    color: white;
-}
-
-button {
-    padding: 1% 2%;
-    background-color: green;
-    color: white;
-    margin: 0;
-    border: 0;
-    border-radius: 10px;  
-}
-
-button:hover {
-    cursor: pointer;
-    font-weight: bold;
-}
 
 header, footer {
     background-color: green;
@@ -70,6 +33,44 @@ main {
     padding: 2%;
     text-align: center;
     min-height: 80vh;
+}
+
+button {
+    padding: 1% 2%;
+    background-color: green;
+    color: white;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;  
+}
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+a {
+    padding: 1% 2%;
+    background-color: green;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;  
+}
+
+#name, #nav-link {
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+#name, #price {
+    margin: auto;
+}
+
+#nav-link{
+    color: white;
 }
 
 .landing-content{
