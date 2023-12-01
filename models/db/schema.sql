@@ -11,4 +11,4 @@ CREATE TABLE IF NOT EXISTS user (
     zip VARCHAR(5) NOT NULL,
     PRIMARY KEY (id)
 );
--- Validation for users table in 
+-- Validation code for users table in file folder seeds> user.js
