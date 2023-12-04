@@ -59,10 +59,10 @@ function signUp() {
 
 // User Sign-In
 function signIn() {
-  const email = document.getElementById('signin-email').value;
+  const username = document.getElementById('username').value; //NEED TO INCLUDE IN HANDLEBARS HTML
   const password = document.getElementById('signin-password').value;
 
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  firebase.auth().signInWithEmailAndPassword(username, password)
     .then((userCredential) => {
 
       // User signed in successfully
