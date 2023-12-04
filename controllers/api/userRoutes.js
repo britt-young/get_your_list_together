@@ -2,6 +2,22 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("../../models");
 
+  // Your Firebase configuration
+  //MUST REPLACE WITH USABLE DATA FROM FIREBASE AUTH!!!!!
+  const firebaseConfig = {
+    apiKey: 'YOUR_API_KEY',
+    authDomain: 'YOUR_AUTH_DOMAIN',
+    projectId: 'YOUR_PROJECT_ID',
+    storageBucket: 'YOUR_STORAGE_BUCKET',
+    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+    appId: 'YOUR_APP_ID',
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  
+
     //User signup route (HTTP POST request)
 router.post('/signup', async (req, res) => {
   try {
