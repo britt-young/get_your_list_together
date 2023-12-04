@@ -1,4 +1,4 @@
-//Sequelize setup
+//Sequelize setup using environmental variables
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
