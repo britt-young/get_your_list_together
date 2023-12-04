@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("../../models");
 
-  // Your Firebase configuration
   //MUST REPLACE WITH USABLE DATA FROM FIREBASE AUTH!!!!!
   const firebaseConfig = {
     apiKey: 'YOUR_API_KEY',
@@ -34,8 +33,7 @@ function signUp() {
       });
     })
     .then(() => {
-      // Additional data (e.g., zip code) can be stored in Firestore or Realtime Database
-      // Replace this with your specific database logic
+      
       // Retrieve the Firebase Authentication ID of user AFTER signup
       const user = firebase.auth().currentUser;
       const userData = {
@@ -51,6 +49,7 @@ function signUp() {
       console.log('User signed up:', user);
     })
     .catch((error) => {
+
       // Handle errors during sign-up
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -65,11 +64,13 @@ function signIn() {
 
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
+
       // User signed in successfully
       const user = userCredential.user;
       console.log('User signed in:', user);
     })
     .catch((error) => {
+
       // Handle errors during sign-in
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -81,10 +82,12 @@ function signIn() {
 function signOut() {
   firebase.auth().signOut()
     .then(() => {
+
       // User signed out successfully
       console.log('User signed out');
     })
     .catch((error) => {
+
       // Handle errors during sign-out
       console.error('Sign-out error:', error);
     });
