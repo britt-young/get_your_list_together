@@ -23,7 +23,7 @@ function signUp() {
   const username = document.getElementById("username").value;       //NEED TO INCLUDE IN HANDLEBARS HTML
   const email = document.getElementById("email-signup").value;
   const password = document.getElementById("password-signup").value;
-  const zipCode = document.getElementById("zip-code").value;        //NEED TO INCLUDE IN HANDLEBARS HTML
+  // const zipCode = document.getElementById("zip-code").value;        //NEED TO INCLUDE IN HANDLEBARS HTML
 
   firebase
     .auth()
