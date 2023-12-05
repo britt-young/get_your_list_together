@@ -1,5 +1,5 @@
 const express = require("express");
-const sequelize = require("../../config/connection");
+// const sequelize = require("../../config/connection");
 const firebase = require("@firebase/app");
 require("@firebase/auth");
 const router = express.Router();
