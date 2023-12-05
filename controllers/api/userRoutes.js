@@ -59,22 +59,28 @@ function signUp() {
       console.error("Sign-up error:", errorCode, errorMessage);
     });
 }
-// Create a record in the MySQL database
-const newUser = await User.create({
-  username: username,
-  password: password,             // Hashed password in Users.js model
-  email: email,
-  zip: zip,
-});
+async function createUser(req, res) {
+  try {
+    // Create a record in the MySQL database
+    const newUser = await User.create({
+      username: req.body.username,
+      password: req.body.password,          // Hashed password in Users.js model
+      email: req.body.email,
+    });
 
-try {
-  res
-    .status(201)
-    .json({ message: "User created successfully", user: newUser.toJSON() });
-} catch (error) {
-  console.error("Signup error:", error.message);
-  res.status(500).json({ error: "Internal server error" });
+    res
+      .status(201)
+      .json({ message: "User created successfully", user: newUser.toJSON() });
+  } catch (error) {
+    console.error("Signup error:", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
 }
+
+// Call the asynchronous function when handling a request, for example in an Express route
+app.post('/signup', async (req, res) => {
+  await createUser(req, res);
+});
 
 //-------------------------------------------END OF SIGN UP CODE----------------------------------------------//
 // User Sign-In
