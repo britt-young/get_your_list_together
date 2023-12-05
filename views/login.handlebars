@@ -12,7 +12,7 @@
         <input class="form-input" type="password" id="password-login" />
       </div>
       <div>
-        <button type="submit">login</button>
+        <button type="submit" onClick="signIn()">login</button>
       </div>
     </form>
   </div>
@@ -21,8 +21,8 @@
     <h2>Sign Up</h2>
     <form class="form signup-form">
       <div>
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
+        <label for="username-signup">username:</label>
+        <input class="form-input" type="text" id="username" />
       </div>
       <div>
         <label for="email-signup">email:</label>
@@ -33,8 +33,7 @@
         <input class="form-input" type="password" id="password-signup" />
       </div>
       <div>
-        <button type="submit">signup</button>
-        //need an event on submit?
+        <button type="submit" onClick="signUp()">signup</button>
       </div>
     </form>
   </div>
