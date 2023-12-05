@@ -6,11 +6,13 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//see notes below??
+const userRoutes = require('./controllers/api/userRoutes')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
+// MIDDEWARE SET UP FOR USER SESSION TRACKING
 // Set Handlebars as the default templating engine
 const hbs = exphbs.create({ helpers });
 
@@ -31,17 +33,19 @@ const sess = {
       })
 };
   
-// // Add express-session and store as Express.js middleware
+  // Add express-session and store as Express.js middleware
   app.use(session(sess));
   app.engine('handlebars', hbs.engine);
   app.set('view engine', 'handlebars');
-
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static(path.join(__dirname, '/public')));
+  // will the below code use ALL js filesin the controllers folder? therefore making the userRoutes.js file redundant?
   app.use(routes);
+  // Use the userRoutes controller for requests to server-side authentication
+app.use('/auth', userRoutes);
 
-// // Sequelize
+// Sync Sequelize models with the database and start the server
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
   });

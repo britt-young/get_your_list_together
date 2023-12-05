@@ -1,81 +1,118 @@
 const express = require("express");
+const sequelize = require("../../config/connection");
+const firebase = require("@firebase/app");
+require("@firebase/auth");
 const router = express.Router();
 const { User } = require("../../models");
 
-    //User signup route (HTTP POST request)
-router.post('/signup', async (req, res) => {
-  try {
-    //Validate the users data
-    const { username, password, email, zip } = req.body;
+//MUST REPLACE WITH USABLE DATA FROM FIREBASE AUTH!!!!!
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
 
-    //Create the new user if validation passes
-    const newUser = await User.create({ username, password, email, zip });       //DOES THIS DATA NEED TO BE SAVED IN A SESSION REQ SAVE()?------
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-    //Catch error logic
-    res.json(newUser);
-  } catch (error) {
-    console.error(error);
+// User Sign-Up
+function signUp() {
+  const username = document.getElementById("username").value;       //NEED TO INCLUDE IN HANDLEBARS HTML
+  const email = document.getElementById("email-signup").value;
+  const password = document.getElementById("password-signup").value;
+  const zipCode = document.getElementById("zip-code").value;        //NEED TO INCLUDE IN HANDLEBARS HTML
 
-    //Handle validation errors
-    if (error.name === "SequelizeValidationError") {
-      const validationErrors = error.errors.map((err) => ({
-        field: err.path,
-        message: err.message,
-      }));
-      res.status(400).json({ errors: validationErrors });
-    } else {
-      res.status(500).json({ error: "Failed to create user" });
-    }
-  }
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // User signed up successfully
+      const user = userCredential.user;
+
+      // Update users profile with username and additional data
+      return user.updateProfile({
+        displayName: username,
+      });
+    })
+    .then(() => {
+      // Retrieve the Firebase Authentication ID of user AFTER signup
+      const user = firebase.auth().currentUser;
+      const userData = {
+        username: username,
+        email: email,
+        zipCode: zipCode,
+      };
+
+      // Store user data in "Firestore" (FireBase service)
+      //creating a "collection" in Firestore named "profiles" containing a "userData" object with username, email, and zipcode
+      firebase.firestore().collection("profiles").doc(user.uid).set(userData);
+
+      console.log("User signed up:", user);
+    })
+    .catch((error) => {
+      // Handle errors during sign-up
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Sign-up error:", errorCode, errorMessage);
+    });
+}
+// Create a record in the MySQL database
+const newUser = await User.create({
+  username: username,
+  password: password,             // Hashed password in Users.js model
+  email: email,
+  zip: zip,
 });
 
-    //User login route (HTTP POST request)
-router.post('/login', async (req, res) => {
-    try {
-      //Retrieve user data from the database based on the provided email in the request body
-      const userData = await User.findOne({ where: { email: req.body.email } });                              //DOES THIS CONST NEED TO BE CHANGED TO MATCH newUser ABOVE?------
-  
-      if (!userData) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
-        return;
-      }
-      //Validate the provided password against the hashed password stored in the database
-      const validPassword = await userData.checkPassword(req.body.password);
-  
-      if (!validPassword) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect email or password, please try again' });
-        return;
-      }
-      //If valid, create a new session and store the user_id and logged_in status-----
-      req.session.save(() => {
-        req.session.user_id = userData.id;  //Set the user_id property in the session to the id of the authenticated user
-        req.session.logged_in = true;
-        req.session.user_data = {
-          username: userData.username,
-          email: userData.email,
-          // Add any additional user-related data from the user profile database------
-          cart: userProfileData,
-        };
+try {
+  res
+    .status(201)
+    .json({ message: "User created successfully", user: newUser.toJSON() });
+} catch (error) {
+  console.error("Signup error:", error.message);
+  res.status(500).json({ error: "Internal server error" });
+}
 
-        res.json({ user: userData, message: 'You are now logged in!' });
-      });
-      //Error handling
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
-  
-  //User logout route (HTTP POST request)
-  router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
+//-------------------------------------------END OF SIGN UP CODE----------------------------------------------//
+// User Sign-In
+function signIn() {
+  const username = document.getElementById("username").value; //NEED TO INCLUDE IN HANDLEBARS HTML
+  const password = document.getElementById("signin-password").value;
+
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(username, password)
+    .then((userCredential) => {
+      // User signed in successfully
+      const user = userCredential.user;
+      console.log("User signed in:", user);
+    })
+    .catch((error) => {
+      // Handle errors during sign-in
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Sign-in error:", errorCode, errorMessage);
+    });
+}
+
+//-------------------------------------------END OF SIGN IN CODE----------------------------------------------//
+// User Sign-Out
+function signOut() {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // User signed out successfully
+      console.log("User signed out");
+    })
+    .catch((error) => {
+      // Handle errors during sign-out
+      console.error("Sign-out error:", error);
+    });
+}
+
+//-------------------------------------------END OF SIGN OUT CODE----------------------------------------------//
+module.exports = router;
