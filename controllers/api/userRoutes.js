@@ -77,7 +77,7 @@ async function createUser(req, res) {
 }
 
 // Call the asynchronous function when handling a request, for example in an Express route
-app.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
   await createUser(req, res);
 });
 

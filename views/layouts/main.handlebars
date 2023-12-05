@@ -11,14 +11,13 @@
         <div class="header-content">
             <a id="nav-link" href="homepage"><h1>Get Your List Together!</h1></a>
             {{#if logged_in}}
-            <a id="logout"><button>Logout</button></a>
+            <a id="logout"><button onClick="signOut()">Logout</button></a>
             {{else}}
             <a href="login"><button>Login</button></a>
             {{/if}}
         </div>
     </header>
     <main>
-      {{!-- render content --}}
       {{{ body }}}
     </main>
 
@@ -28,3 +27,7 @@
 
   </body>
 </html>
+
+<!-- Include Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
