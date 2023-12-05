@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS user (
     username VARCHAR(16) NOT NULL UNIQUE,
     password VARCHAR(16) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    zip VARCHAR(5) NOT NULL,
+    --zip VARCHAR(5) NOT NULL,
     PRIMARY KEY (id)
 );
 -- Validation code for users table in file folder seeds> user.js

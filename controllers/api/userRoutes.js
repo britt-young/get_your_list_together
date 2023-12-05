@@ -5,14 +5,15 @@ require("@firebase/auth");
 const router = express.Router();
 const { User } = require("../../models");
 
-//MUST REPLACE WITH USABLE DATA FROM FIREBASE AUTH!!!!!
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  // Firebase configuration here
+  // See https://firebase.google.com/docs/web/setup#add-sdks-initialize
+  apiKey: "AIzaSyDFoSC3hpc6WmwBSPyp4GyFI-YTjH303nI",
+  authDomain: "get-your-list-together.firebaseapp.com",
+  projectId: "get-your-list-together",
+  storageBucket: "get-your-list-together.appspot.com",
+  messagingSenderId: "758683039200",
+  appId: "1:758683039200:web:d94652bcf5a0d3c1ece785"
 };
 
 // Initialize Firebase
@@ -23,7 +24,6 @@ function signUp() {
   const username = document.getElementById("username").value;       //NEED TO INCLUDE IN HANDLEBARS HTML
   const email = document.getElementById("email-signup").value;
   const password = document.getElementById("password-signup").value;
-  // const zipCode = document.getElementById("zip-code").value;        //NEED TO INCLUDE IN HANDLEBARS HTML
 
   firebase
     .auth()
@@ -43,7 +43,6 @@ function signUp() {
       const userData = {
         username: username,
         email: email,
-        zipCode: zipCode,
       };
 
       // Store user data in "Firestore" (FireBase service)
