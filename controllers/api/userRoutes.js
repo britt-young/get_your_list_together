@@ -21,7 +21,8 @@ firebase.initializeApp(firebaseConfig);
 
 // User Sign-Up
 function signUp() {
-  const username = document.getElementById("username").value;       //NEED TO INCLUDE IN HANDLEBARS HTML
+  console.log("signup function started");
+  const username = document.getElementById("username").value;       
   const email = document.getElementById("email-signup").value;
   const password = document.getElementById("password-signup").value;
 
@@ -84,9 +85,7 @@ router.post('/login', async (req, res) => {
 //-------------------------------------------END OF SIGN UP CODE----------------------------------------------//
 // User Sign-In
 function signIn() {
-  const username = document.getElementById("username").value; //NEED TO INCLUDE IN HANDLEBARS HTML
-  const password = document.getElementById("signin-password").value;
-
+  console.log("signin function started");
   firebase
     .auth()
     .signInWithEmailAndPassword(username, password)
@@ -102,6 +101,16 @@ function signIn() {
       console.error("Sign-in error:", errorCode, errorMessage);
     });
 }
+
+document.getElementByClass('login-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+const username = document.getElementById("username").value; 
+const password = document.getElementById("signin-password").value;
+
+// Call signIn function
+signIn(username, password);
+});
+
 
 //-------------------------------------------END OF SIGN IN CODE----------------------------------------------//
 // User Sign-Out
