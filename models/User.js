@@ -41,13 +41,13 @@ User.init(
           isEmail: true,        // Ensures that the email follows the email format
         },
       },
-     zip: {
+     /*zip: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
             len: [5],             // Ensures that the password is at least 5 characters long
           },
-     }
+     }*/
     },
     {
       hooks: {
