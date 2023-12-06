@@ -10,8 +10,11 @@ function findRecipes() {
     const fullUrl = `${apiUrl}${query}&app_id=${appId}&app_key=${appKey}`;
 
     recipeSearch(fullUrl);
+    document.querySelector('.results').innerHTML = "";
 }
 
+
+let resultsDiv = document.querySelector('.results');
 
 async function recipeSearch(fullUrl) {
     const response = await fetch(fullUrl);
@@ -20,25 +23,30 @@ async function recipeSearch(fullUrl) {
     console.log(recipes)
 
     recipes.forEach((recipe) => {
-        recipe_name = recipe.recipe.label;
-        recipe_url = recipe.recipe.url;
+        let recipe_name = recipe.recipe.label;
+        let recipe_url = recipe.recipe.url;
+        let recipe_image = recipe.recipe.image;
+
+        const card = document.createElement('div');
+        card.setAttribute('class', "recipe");
+        const cardImg = document.createElement('img');
+        cardImg.src = recipe_image;
+        cardImg.setAttribute("alt", recipe_name);
+        const cardName = document.createElement('h3');
+        cardName.setAttribute('id', 'name');
+        cardName.innerHTML = recipe_name;
+        const cardATag = document.createElement('a');
+        cardATag.setAttribute('id', 'choice');
+        cardATag.setAttribute('href', recipe_url);
+        cardATag.setAttribute('target', "_blank");
+        const cardBtn = document.createElement('button');
+        cardBtn.setAttribute('id', 'choice');
+        cardBtn.innerHTML = "See How To Cook";
+
+        resultsDiv.appendChild(card);
+        card.appendChild(cardImg);
+        card.appendChild(cardName);
+        card.appendChild(cardATag);
+        cardATag.appendChild(cardBtn);
     })
   }
-
-
-// axios.get(fullUrl)
-//     .then(response => {
-//         console.log('Response:', response.data);
-
-//         const recipes = response.data.hits;
-
-//         recipes.forEach((recipe) => {
-//             // recipe_name = recipe.recipe.label;
-//             // recipe_url = recipe.recipe.url;
-//             console.log(recipe.recipe.label)
-//         })
-
-//     })
-//     .catch(error => {
-//         console.error('Error:', error.message);
-// });
