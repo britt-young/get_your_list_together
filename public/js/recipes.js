@@ -49,4 +49,8 @@ async function recipeSearch(fullUrl) {
         card.appendChild(cardATag);
         cardATag.appendChild(cardBtn);
     })
+
+    if (recipes.length == 0){
+        resultsDiv.innerHTML = "No Results Found. Please Try Again."
+    }
   }
