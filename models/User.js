@@ -48,6 +48,11 @@ User.init(
             len: [5],             // Ensures that the password is at least 5 characters long
           },
      }*/
+     firebaseUid: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
     },
     {
       hooks: {
