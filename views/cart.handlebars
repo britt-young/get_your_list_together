@@ -1,5 +1,7 @@
-{{! User cart/ budget page with placeholder example content ---- Replace with commented out code below with data!  }}
-{{!-- <div class="user-cart">
+{{! User cart/ budget page with placeholder example content ---- Replace with commented out code below with data! }}
+{{!-- {{#if logged_in}} --}}
+
+<div class="user-cart">
   <div>
     <h2>Hello Brittney!</h2>
     <div class="budget">
@@ -9,56 +11,19 @@
   </div>
 
   <div class="cart-results">
-    <div class="item">
-      <h3 id="name">Iceberg Lettuce</h3>
-      <h3 id="price">$1.79</h3>
-      <button>-</button>
-    </div>
-    <div class="item">
-      <h3 id="name">Large White Eggs</h3>
-      <h3 id="price">$2.19</h3>
-      <button>-</button>
-    </div>
   </div>
 
   <div class="total-section">
-    <h3>TAXES: $0.29</h3>
-    <h3>SPENT: $4.27</h3>
-    <h3>MONEY LEFT: $95.73</h3>
-  </div>
-</div> --}}
-
-
-{{!-- REPLACE ABOVE CODE WITH BELOW CODE (with appropriate adjustments) WHEN YOU HAVE FILES/DATA --}}
-
-{{#if logged_in}}
-<div class="user-cart">
-  <div class="user-info">
-    {{!-- <h2 class="user-name">Hello {{.name}}</h2> --}}
-    <div class="budget">
-      <h2>BUDGET:</h2>
-      {{!-- <h2 class="user-budget">{{.budget}}</h2> --}}
-    </div>
-  </div>
-
-  <div class="cart-results">
-    {{!-- {{#each as || }} --}}
-    <div class="item">
-      {{!-- <h3 id="name">{{.name}}</h3> --}}
-      {{!-- <h3 id="price">{{.price}}</h3> --}}
-      <button>-</button>
-    </div>
-    {{!-- {{/each}} --}}
-  </div>
-
-  <div class="total-section">
-    {{!-- <h3>SPENT: {{.total}}</h3> --}}
-    {{!-- <h3>MONEY LEFT: {{.left}}</h3> --}}
+    <h3 id="money-spent"></h3>
+    {{!-- <h3>MONEY LEFT: $95.73</h3> --}}
   </div>
 </div>
-{{else}}
+
+{{!-- {{else}}
 <div class="user-cart">
   <h2>Please Login to view your cart</h2>
   <a href="/login"><button>Login</button></a>
 </div>
-{{/if}}
+{{/if}} --}}
+
+<script src="/js/cart.js"></script>

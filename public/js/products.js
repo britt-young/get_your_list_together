@@ -112,8 +112,6 @@
            for (var i = 0; i < savedItems.length; i++) {
              let product_id = savedItems[i].id;
              let product_name = savedItems[i].name;
-             let product_price = savedItems[i].price;
-             let product_size = savedItems[i].size;
 
              const card = document.createElement('div');
              card.setAttribute('class', "product");
