@@ -56,27 +56,10 @@ const firebaseConfig = {
         console.error("Sign-up error:", errorCode, errorMessage);
       });
   }
-  async function createUser(req, res) {
-    try {
-      // Create a record in the MySQL database
-      const newUser = await User.create({
-        username: req.body.username,
-        password: req.body.password,          // Hashed password in Users.js model
-        email: req.body.email,
-      });
-  
-      res
-        .status(201)
-        .json({ message: "User created successfully", user: newUser.toJSON() });
-    } catch (error) {
-      console.error("Signup error:", error.message);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  }
 
 
   // User Sign-In ------------------------------------------------
-function signIn() {
+  function signIn() {
   console.log("signin function started");
   firebase
     .auth()
@@ -97,7 +80,10 @@ document.getElementByClass('login-form').addEventListener('submit', function (ev
   event.preventDefault();
 const username = document.getElementById("username").value; 
 const password = document.getElementById("signin-password").value;
+});
 
+// Call signIn function (is ths necessary??)
+signIn(username, password);
 
 
 // User Sign-Out -------------------------------------------------
@@ -114,4 +100,3 @@ function signOut() {
       console.error("Sign-out error:", error);
     });
 }
-
