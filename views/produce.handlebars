@@ -1,9 +1,9 @@
-{{! Page for find produce & adding to cart ---- Replace with commented out code below with data!  }}
+{{! Page for find produce & adding to cart ---- Replace with commented out code below with data! }}
 <div class="produce-page">
   <div class="product-search">
     <h2>Search for foods</h2>
     <div class="search-bar">
-      <input type="text" placeholder="bread, lettuce, tomatoes" id="input" />
+      <input type="text" placeholder="bread, eggs, tomatoes, milk, strawberries, lettuce" id="input" />
       <button type="submit" id="submit-button" onclick="findProduct()">Search</button>
     </div>
 
@@ -25,7 +25,7 @@
     <h2>My Shopping Cart</h2>
 
     <div class="groceries">
-      <div class="item">
+      {{!-- <div class="item">
         <h3 id="name">Iceberg Lettuce</h3>
         <h3 id="price">$1.79</h3>
         <button>-</button>
@@ -33,8 +33,9 @@
       <div class="item">
         <h3 id="name">Large White Eggs</h3>
         <h3 id="price">$2.19</h3>
-        <button>-</button>
-      </div>
+        <button>-</button> --}}
+        {{!--
+      </div> --}}
     </div>
 
     <button>Save Cart</button>
@@ -46,56 +47,186 @@
 
 <script>
   // Fetch data from Kroger API
-function findProduct(){
-  var searchInput = document.querySelector(".search-bar input").value;
-  getProducts(searchInput);
-}
-var krogerToken = 'eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJnZXR5b3VsaXN0dG9nZXRoZXItNDAwYTg1NTkxNjRjMDBlNDVhZWMyMmI2ZjFjMDg1YTkzOTkxMjQwMTAwNDk1MTc5NTk5IiwiZXhwIjoxNzAxOTM2MTk3LCJpYXQiOjE3MDE5MzQzOTIsImlzcyI6ImFwaS5rcm9nZXIuY29tIiwic3ViIjoiMWQwNTEwNGEtZGQyYi01NGMwLWIxZTgtYjcxM2YxNTNlNzA4Iiwic2NvcGUiOiJwcm9kdWN0LmNvbXBhY3QiLCJhdXRoQXQiOjE3MDE5MzQzOTcwMzg1Mzc0ODIsImF6cCI6ImdldHlvdWxpc3R0b2dldGhlci00MDBhODU1OTE2NGMwMGU0NWFlYzIyYjZmMWMwODVhOTM5OTEyNDAxMDA0OTUxNzk1OTkifQ.rq0AY2gsUw98LM-hi1QwqqT9C-p5Xy1j09F2l9z9XvW7NGwy44Wzdw8CIqPcYsrLhTnSkD7LQvQfMKQDLrVct559muNVLKIWkhTFLW8_pP7KZM4mnOcsn0zXMqBUOZWekAv5lCmN1lMd1AgjAlcUvdhmc0ADpziKw9zkQO-eG1tS1TfuvQSMVRLPxVtl8815xdBaZwcH8zHQGMS85bczwMQO46fNq864dVS1YJmdjcSVMlEUJkibaa0ijo4Uvs62q8xb796A5NDvwxfF5m68bYN8H_oUkVA2c1NciD8hQP3C9saP_TbYaS--7NgDhHL22DztR8rAqA7Zs9uKxcNKKw';
+  let resultsDiv = document.querySelector(".results");
+  var cartArray = [];
 
-function getProducts(searchInput){
-  fetch(`https://api.kroger.com/v1/products?filter.term=${searchInput}&filter.limit=10`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${krogerToken}`,
-      'Content-Type': 'application/json',
-    },
-  })
-  .then(response => response.json())
-  .then(data => {
-    let list = data.data
-
-    console.log(">",data);
-    let resultsDiv = document.querySelector(".results");
+  function findProduct() {
+    var searchInput = document.querySelector(".search-bar input").value;
+    getProducts(searchInput);
     resultsDiv.innerHTML = "";
+  }
 
-    list.forEach((product) => {
-        let product_name = product.description;
-        let product_img = product.images[0].sizes[1].url;
+  const apiURL = "/js/productsAPI.json";
+  function getProducts(searchInput) {
 
-        const card = document.createElement('div');
-        card.setAttribute('class', "product");
-        const cardImg = document.createElement('img');
-        cardImg.src = product_img;
-        cardImg.setAttribute("alt", product_name);
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((products) => {
+        displayCart();
 
-        const cardName = document.createElement('h3');
-        cardName.setAttribute('id', 'name');
-        cardName.innerHTML = product_name;
+        products.forEach((product) => {
 
-        const cardBtn = document.createElement('button');
-        cardBtn.setAttribute('id', 'add');
-        cardBtn.innerHTML = "+";
+          if (product.name == searchInput) {
+            let allItems = product.items
 
-        resultsDiv.appendChild(card);
-        card.appendChild(cardImg);
-        card.appendChild(cardName);
-        card.appendChild(cardBtn);
-    })
-    }
-  )
-   
-    .catch(error => {
-      console.error('Fetch Error:', error);
-    });
-}
+            allItems.forEach((item) => {
+              let product_name = item.description;
+              let product_size = item.size;
+              let product_price = item.price;
+              let product_id = item.id;
+              console.log(product_name)
+
+              const card = document.createElement('div');
+              card.setAttribute('class', "product");
+
+              const cardName = document.createElement('h4');
+              cardName.setAttribute('id', 'name');
+              cardName.innerHTML = product_name;
+
+              const cardId = document.createElement('h6');
+              cardId.setAttribute('id', 'number');
+              cardId.innerHTML = product_id;
+
+              const cardSize = document.createElement('p');
+              cardSize.setAttribute('id', 'size');
+              cardSize.innerHTML = product_size;
+
+              const cardPrice = document.createElement('h5');
+              cardPrice.setAttribute('id', 'price');
+              cardPrice.innerHTML = product_price;
+
+              const cardBtn = document.createElement('button');
+              cardBtn.setAttribute('id', 'addItem');
+              cardBtn.innerHTML = "+";
+
+              resultsDiv.appendChild(card);
+              card.appendChild(cardId);
+              card.appendChild(cardName);
+              card.appendChild(cardSize);
+              card.appendChild(cardPrice);
+              card.appendChild(cardBtn);
+            })
+          }
+
+        });
+
+        let saveBtns = document.querySelectorAll('#addItem');
+
+        for (var i = 0; i < saveBtns.length; i++) {
+          saveBtns[i].addEventListener('click', function () {
+            var parent = this.parentNode;
+            let item_id = parent.children[0].innerHTML;
+            let item_name = parent.children[1].innerHTML;
+            let item_size = parent.children[2].innerHTML;
+            let item_price = parent.children[3].innerHTML;
+            saveItem(item_id, item_name, item_size, item_price);
+          });
+          displayCart();
+
+        };
+
+        function saveItem(item_id, item_name, item_size, item_price) {
+          var storedItems = JSON.parse(localStorage.getItem("cart"));
+
+          if (storedItems !== null) {
+            cartArray = storedItems;
+          };
+
+          localStorage.setItem("cart", JSON.stringify(cartArray));
+
+          var cartObj = {
+            "id": item_id,
+            "name": item_name,
+            "size": item_size,
+            "price": item_price,
+          };
+
+          cartArray.push(cartObj);
+          localStorage.setItem("cart", JSON.stringify(cartArray));
+          displayCart();
+        }
+
+        function displayCart() {
+          var savedItems = JSON.parse(localStorage.getItem('cart'));
+          var displaySaved = document.querySelector(".groceries");
+
+          displaySaved.innerHTML = " ";
+
+          if (savedItems < 1) {
+            console.log("empty")
+
+          } else {
+
+            for (var i = 0; i < savedItems.length; i++) {
+              let product_id = savedItems[i].id;
+              let product_name = savedItems[i].name;
+              let product_price = savedItems[i].price;
+              let product_size = savedItems[i].size;
+
+              const card = document.createElement('div');
+              card.setAttribute('class', "product");
+
+              const cardName = document.createElement('h4');
+              cardName.setAttribute('id', 'name');
+              cardName.innerHTML = product_name;
+
+
+              const cardId = document.createElement('h4');
+              cardId.setAttribute('id', 'number');
+              cardId.innerHTML = product_id;
+
+              const cardSize = document.createElement('p');
+              cardSize.setAttribute('id', 'size');
+              cardSize.innerHTML = product_size;
+
+              const cardPrice = document.createElement('h5');
+              cardPrice.setAttribute('id', 'price');
+              cardPrice.innerHTML = product_price;
+
+              const cardBtn = document.createElement('button');
+              cardBtn.setAttribute('id', 'removeItem');
+              cardBtn.innerHTML = "-";
+
+              displaySaved.appendChild(card);
+              card.appendChild(cardId);
+              card.appendChild(cardName);
+              card.appendChild(cardSize);
+              card.appendChild(cardPrice);
+              card.appendChild(cardBtn);
+            }
+
+            let removeBtns = document.querySelectorAll('#removeItem');
+
+            for (var i = 0; i < removeBtns.length; i++) {
+              removeBtns[i].addEventListener('click', function () {
+                var parent = this.parentNode;
+                let item_id = parent.children[0].innerHTML;
+                let item_name = parent.children[1].innerHTML;
+                let item_size = parent.children[2].innerHTML;
+                let item_price = parent.children[3].innerHTML;
+                removeItem(item_id, item_name, item_size, item_price);
+              });
+            }
+
+            function removeItem(item_id, item_name, item_size, item_price) {
+              var savedItems = JSON.parse(localStorage.getItem('cart'));
+              savedItems.splice(savedItems.findIndex(item => item.id === item_id), 1);
+
+              // Update local storage
+              localStorage.setItem("cart", JSON.stringify(savedItems));
+
+              // Redisplay saved tries
+              displayCart();
+            }
+
+          }
+        }
+
+        displayCart();
+      })
+
+      .catch(error => {
+        console.error('Fetch Error:', error);
+      });
+  }
 </script>

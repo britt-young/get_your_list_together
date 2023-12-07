@@ -32,5 +32,3 @@ async function getProducts(term) {
     // Return json object
     return productsResponse.json();
   }
-
-  
