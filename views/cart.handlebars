@@ -4,9 +4,10 @@
 <div class="user-cart">
   <div>
     <h2>Hello Brittney!</h2>
-    <div class="budget">
+      <div class="budget">
       <h2>BUDGET:</h2>
-      <h2>$100</h2>
+      <input type="number" placeholder="200" id="input"/>
+      <button type="submit" id="submit-button" onclick="getBudget()">Save</button>
     </div>
   </div>
 
@@ -14,8 +15,9 @@
   </div>
 
   <div class="total-section">
+    <h3 id="money-budget"></h3>
     <h3 id="money-spent"></h3>
-    {{!-- <h3>MONEY LEFT: $95.73</h3> --}}
+    <h3 id="money-left"></h3>
   </div>
 </div>
 

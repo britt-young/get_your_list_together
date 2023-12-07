@@ -120,12 +120,11 @@ a {
     margin: 2% auto;
 }
 
-.product img {
+/* .product img {
     width: auto;
     height: 150px;
     max-width: 150px;
-    /* max-height: 250px; */
-}
+} */
 
 .recipes-page .results {
     display: flex;
@@ -186,9 +185,9 @@ a {
 .budget {
     margin: 2% auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
-    max-width: 350px;
+    max-width: 550px;
 }
 
 .cart-results {
@@ -287,5 +286,13 @@ footer {
         margin: auto;
         width: 90%;
         border-radius: 5px;
+    }
+
+    .budget {
+        margin: 2% auto;
+        display: block;
+        justify-content: space-between;
+        width: 98%;
+        max-width: 550px;
     }
 }

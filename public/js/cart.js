@@ -20,7 +20,7 @@ function displayCart() {
             card.setAttribute('class', "product");
 
             const cardName = document.createElement('h4');
-            cardName.setAttribute('id', 'name');
+            cardName.setAttribute('id', 'name');2
             cardName.innerHTML = product_name;
 
             const cardSize = document.createElement('h4');
@@ -29,7 +29,7 @@ function displayCart() {
 
             const cardPrice = document.createElement('h4');
             cardPrice.setAttribute('id', 'price');
-            cardPrice.innerHTML = product_price;
+            cardPrice.innerHTML = `$${product_price}`;
 
             const cardId = document.createElement('h4');
             cardId.setAttribute('id', 'number');
@@ -48,12 +48,12 @@ function displayCart() {
 
             sum += parseFloat(product_price);
         };
+        displayBudget(sum);
     }
 
 
     let moneySpent = document.querySelector("#money-spent");
-    // let totalAmount = sum;
-    let totalAmount = Math.round(sum, 1)
+    let totalAmount = sum.toFixed(2);
     moneySpent.innerHTML = `Total Spent: $${totalAmount}`
 
 
@@ -70,14 +70,57 @@ function displayCart() {
     function removeItem(item_id) {
         var savedItems = JSON.parse(localStorage.getItem('cart'));
         savedItems.splice(savedItems.findIndex(item => item.id === item_id), 1);
-
-        // Update local storage
         localStorage.setItem("cart", JSON.stringify(savedItems));
 
         displayCart();
     }
+};
 
+budgetArray = [];
+
+function getBudget() {
+    var budgetInput = document.querySelector(".budget input").value;
+    saveBudget(budgetInput);
+    location.reload();
 }
 
 
+function saveBudget(budgetInput) {
+    var storedBudget = JSON.parse(localStorage.getItem("budget"));
+
+    if (storedBudget !== null) {
+      budgetArray = storedBudget;
+    };
+
+    localStorage.setItem("budget", JSON.stringify(budgetArray));
+
+    var budgetObj = {
+      "amount": budgetInput
+    };
+
+    budgetArray.splice(0, 1, budgetObj);
+    localStorage.setItem("budget", JSON.stringify(budgetArray));
+    displayBudget();
+  };
+
+  function displayBudget(sum) {
+    var savedBudget = JSON.parse(localStorage.getItem('budget'));
+    var displayBudget = document.querySelector("#money-budget");
+
+    if (savedBudget < 1) {
+      console.log("empty")
+
+    } else {
+        for (var i = 0; i < savedBudget.length; i++) {
+        let amount = savedBudget[0].amount;
+        displayBudget.innerHTML = `Budget: $${amount}`;
+
+        var moneyLeft = document.querySelector("#money-left");
+        var calcAmount = (amount - sum);
+        moneyLeft.innerHTML = `Money Left: $${calcAmount}`
+    }
+}
+};
+
+displayBudget()
 displayCart();
