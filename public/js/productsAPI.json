@@ -1,0 +1,155 @@
+[
+    {
+        "name": "milk",
+        "items": [
+            {
+                "description": "2% Reduced Fat Milk",
+                "size": "1 gal",
+                "price": 2.79,
+                "id": 1
+            },
+            {
+                "description": "Whole Milk",
+                "size": "1/2 gal",
+                "price": 1.99,
+                "id": 2
+            }
+        ]
+    },
+    {
+        "name": "eggs",
+        "items": [
+            {
+                "description": "White eggs",
+                "size": "large",
+                "price": 2.19,
+                "id": 3
+            },
+            {
+                "description": "White eggs",
+                "size": "extra large",
+                "price": 3.19,
+                "id": 4
+            }
+        ]
+    },
+    {
+        "name": "tomatoes",
+        "items": [
+            {
+                "description": "Roma Tomatoes",
+                "size": ".99/lb",
+                "price": 0.99,
+                "id": 5
+            },
+            {
+                "description": "Red tomatoes",
+                "size": "2.48/lb",
+                "price": 2.48,
+                "id": 6
+            }
+        ]
+    },
+    {
+        "name": "bread",
+        "items": [
+            {
+                "description": "Sara Lee Honey Wheat Sandwich Bread",
+                "size": "20oz",
+                "price": 3.99,
+                "id": 7
+            },
+            {
+                "description": "Nature's Own Butterbread Sliced White Bread",
+                "size": "20oz",
+                "price": 4.29,
+                "id": 8
+            }
+        ]
+    },
+    {
+        "name": "lettuce",
+        "items": [
+            {
+                "description": "Iceberge Lettuce",
+                "size": "1ct",
+                "price": 1.79,
+                "id": 9
+            },
+            {
+                "description": "Romaine Lettuce",
+                "size": "1ct",
+                "price": 2.29,
+                "id": 10
+            }
+        ]
+    },
+    {
+        "name": "strawberries",
+        "items": [
+            {
+                "description": "Fresh Strawberries",
+                "size": "1lb",
+                "price": 3.99,
+                "id": 11
+            },
+            {
+                "description": "Fresh Strawberries",
+                "size": "32oz",
+                "price": 8.29,
+                "id": 12
+            }
+        ]
+    },
+    {
+        "name": "chicken",
+        "items": [
+            {
+                "description": "Chicken Breast",
+                "size": "3.99/lb",
+                "price": 15,
+                "id": 13
+            },
+            {
+                "description": "Natural Sliced Oven Roasted Turkey Breast",
+                "size": "7oz",
+                "price": 7.79,
+                "id": 14
+            }
+        ]
+    },
+    {
+        "name": "rice",
+        "items": [
+            {
+                "description": "Long Grain White Rice",
+                "size": "32oz",
+                "price": 1.89,
+                "id": 15
+            },
+            {
+                "description": "Long Grain Brown Rice",
+                "size": "2lb",
+                "price": 1.89,
+                "id": 16
+            }
+        ]
+    },
+    {
+        "name": "onions",
+        "items": [
+            {
+                "description": "Red Onions Bag",
+                "size": "2lb",
+                "price": 2.49,
+                "id": 17
+            },
+            {
+                "description": "Yellow Onions Bag",
+                "size": "2lb",
+                "price": 2.69,
+                "id": 18
+            }
+        ]
+    }
+]

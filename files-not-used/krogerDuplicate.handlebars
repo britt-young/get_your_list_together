@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kroger API</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-</head>
-<body>
-
 <div id="kroger-data">
   <!-- Handlebars template will be inserted here -->
 </div>
 
-<script id="kroger-template" type="text/x-handlebars-template">
+{{!-- <script id="kroger-template" type="text/x-handlebars-template"> --}}
   {{#each items}}
     <p>{{name}} - {{price}}</p>
   {{/each}}
-</script>
+{{!-- </script> --}}
+<script src="/js/kroger.js"></script>
+<script src="/js/kroger2.js"></script>
 
 <script>
   // Fetch data from Kroger API
@@ -39,6 +31,3 @@
       console.error('Fetch Error:', error);
     });
 </script>
-
-</body>
-</html>
