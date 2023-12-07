@@ -55,6 +55,7 @@ a {
     margin: 0;
     border: 0;
     border-radius: 10px;  
+    text-decoration: none;
 }
 
 #name, #nav-link {
@@ -138,11 +139,11 @@ a {
     max-width: 300px;
 }
 
-.recipe-buttons #choice {
+.recipe #choice {
     display: block;
     width: 100%;
     margin: 3% auto;
-    padding: 2% 0
+    padding: 2% 0;
 }
 
 .item {
