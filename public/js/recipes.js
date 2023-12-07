@@ -1,7 +1,7 @@
 
 function findRecipes() {
     searchInput = document.querySelector(".search-bar input").value;
-    console.log(">>", searchInput)
+    console.log("User Search:", searchInput)
 
     const appId = 'd22b2667';
     const appKey = '95cec18d886fd27faf20498beb81102c';
@@ -20,7 +20,7 @@ async function recipeSearch(fullUrl) {
     const response = await fetch(fullUrl);
     const data = await response.json();
     const recipes = data.hits;
-    console.log(recipes)
+    // console.log(recipes)
 
     recipes.forEach((recipe) => {
         let recipe_name = recipe.recipe.label;
