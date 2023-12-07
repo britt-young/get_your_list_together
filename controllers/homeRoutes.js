@@ -56,4 +56,14 @@ router.get("/login", async (req, res) => {
   }
 });
 
+//addition testing
+router.get("/signup", async (req, res) => {
+  try {
+    res.render("signed in");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

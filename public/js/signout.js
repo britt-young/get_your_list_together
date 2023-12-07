@@ -1,5 +1,5 @@
 // User Sign-Out ------------------------------------------------
-function signout() {
+function signOut() {
 // Send a signout request to the server using a fetch request
     fetch('/signout', {
       method: 'POST',
@@ -21,3 +21,6 @@ function signout() {
       console.error('Error:', error);
     });
   }
+
+//const logout = document.getElementById('signoutBtn');
+//logout.addEventListener('click', signOut);
