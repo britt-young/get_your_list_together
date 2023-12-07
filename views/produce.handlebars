@@ -8,7 +8,7 @@
     </div>
 
     <div class="results">
-      <div class="product">
+      {{!-- <div class="product">
         <img src="/example-images/milk-large.png" alt="Fat Free Skim Milk" />
         <div>
           <h3 id="name">Fat Free Skim Milk</h3>
@@ -16,7 +16,7 @@
         </div>
 
         <button>+</button>
-      </div>
+      </div> --}}
 
     </div>
   </div>
@@ -50,7 +50,7 @@ function findProduct(){
   var searchInput = document.querySelector(".search-bar input").value;
   getProducts(searchInput);
 }
-var krogerToken = 'eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJnZXR5b3VsaXN0dG9nZXRoZXItNDAwYTg1NTkxNjRjMDBlNDVhZWMyMmI2ZjFjMDg1YTkzOTkxMjQwMTAwNDk1MTc5NTk5IiwiZXhwIjoxNzAxOTMzNjY2LCJpYXQiOjE3MDE5MzE4NjEsImlzcyI6ImFwaS5rcm9nZXIuY29tIiwic3ViIjoiMWQwNTEwNGEtZGQyYi01NGMwLWIxZTgtYjcxM2YxNTNlNzA4Iiwic2NvcGUiOiJwcm9kdWN0LmNvbXBhY3QiLCJhdXRoQXQiOjE3MDE5MzE4NjYwMzE0MDA3NjIsImF6cCI6ImdldHlvdWxpc3R0b2dldGhlci00MDBhODU1OTE2NGMwMGU0NWFlYzIyYjZmMWMwODVhOTM5OTEyNDAxMDA0OTUxNzk1OTkifQ.piZByTySmZAbMcmGpDLGgmEnyKhKxuLMnP1MngdsynDJIG5CCDyYw1uCAnQ9w5XlaPbjUBzIdmCglUeHNBfFqhqrlZjzAK4qO3wGj45A07JCoL7f0aH7HqFm46HKOVpIzu4CFZkUQqAKdbwp9FnwxdjUSvh8HhYI1qdMUOb_9pc2vDhPvSFvJzuUPfyQARwIZEc04coznIIZrBWl0O3lDjZo7o2zIPW9_VYOKU6Gl29xP85rZIulkpoCmBs9oR8Y8DrrIBJdt00XaBgY_Njw-_CsNNOKc2nAITggEpGSPSFut4Erb_WFzHgF0BLrTPyvBcMm4TTd0pTutSSantbbOg';
+var krogerToken = 'eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJnZXR5b3VsaXN0dG9nZXRoZXItNDAwYTg1NTkxNjRjMDBlNDVhZWMyMmI2ZjFjMDg1YTkzOTkxMjQwMTAwNDk1MTc5NTk5IiwiZXhwIjoxNzAxOTM2MTk3LCJpYXQiOjE3MDE5MzQzOTIsImlzcyI6ImFwaS5rcm9nZXIuY29tIiwic3ViIjoiMWQwNTEwNGEtZGQyYi01NGMwLWIxZTgtYjcxM2YxNTNlNzA4Iiwic2NvcGUiOiJwcm9kdWN0LmNvbXBhY3QiLCJhdXRoQXQiOjE3MDE5MzQzOTcwMzg1Mzc0ODIsImF6cCI6ImdldHlvdWxpc3R0b2dldGhlci00MDBhODU1OTE2NGMwMGU0NWFlYzIyYjZmMWMwODVhOTM5OTEyNDAxMDA0OTUxNzk1OTkifQ.rq0AY2gsUw98LM-hi1QwqqT9C-p5Xy1j09F2l9z9XvW7NGwy44Wzdw8CIqPcYsrLhTnSkD7LQvQfMKQDLrVct559muNVLKIWkhTFLW8_pP7KZM4mnOcsn0zXMqBUOZWekAv5lCmN1lMd1AgjAlcUvdhmc0ADpziKw9zkQO-eG1tS1TfuvQSMVRLPxVtl8815xdBaZwcH8zHQGMS85bczwMQO46fNq864dVS1YJmdjcSVMlEUJkibaa0ijo4Uvs62q8xb796A5NDvwxfF5m68bYN8H_oUkVA2c1NciD8hQP3C9saP_TbYaS--7NgDhHL22DztR8rAqA7Zs9uKxcNKKw';
 
 function getProducts(searchInput){
   fetch(`https://api.kroger.com/v1/products?filter.term=${searchInput}&filter.limit=10`, {
