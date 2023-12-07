@@ -17,6 +17,7 @@ async function getOrCreateCart() {
     let cartResponse = await fetch(cartUrl, {
       method: "GET",
       cache: "no-cache",
+      // mode: 'no-cors',
       headers: {
         Authorization: `bearer ${accessToken}`,
         "Content-Type": "application/json; charset=utf-8"

@@ -101,6 +101,14 @@ a {
 .groceries {
     min-height: 500px;
 }
+
+.groceries .product  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: left;
+}
+
+
 .search-bar {
     margin: 2% 0;
 }
@@ -120,9 +128,17 @@ a {
     margin: 2% auto;
 }
 
-.product img {
-    width: 100px;
-    height: auto;
+.results .product  {
+    text-align: left;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: left;
 }
 
 .recipes-page .results {
@@ -184,15 +200,37 @@ a {
 .budget {
     margin: 2% auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
-    max-width: 350px;
+    max-width: 550px;
 }
 
 .cart-results {
     width: 100%;
     max-width: 700px;
     margin: auto;
+}
+
+.results .product  {
+    display: block;
+    text-align: center;
+    height: fit-content;
+    width: 95%;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+.results .product button {
+    width: 100%;
+}
+
+#amountDiv {
+    display: flex;
+    flex-wrap: wrap;
+    width:fit-content;
+    justify-content: center;
+    text-align: center;
+    margin: 2% auto;
 }
 
 .total-section {
@@ -246,7 +284,25 @@ footer {
         min-height: 80vh;
     }
 
-    
+    .groceries {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .groceries .product  {
+        display: block;
+        text-align: center;
+        height: fit-content;
+        width: 45%;
+        min-width: 200px;
+    }
+
+    .groceries .product h4, .groceries .product button  {
+        width: 98%;
+        margin: 2%;
+    }
+
+
     .product-search, .shopping-cart {
         border: 2px solid green;
         border-radius: 10px;
@@ -269,6 +325,13 @@ footer {
         height: auto;
     };
 
+    .results .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+
+
     .recipe {
         text-align: left;
         border: 2px solid green;
@@ -285,5 +348,13 @@ footer {
         margin: auto;
         width: 90%;
         border-radius: 5px;
+    }
+
+    .budget {
+        margin: 2% auto;
+        display: block;
+        justify-content: space-between;
+        width: 98%;
+        max-width: 550px;
     }
 }

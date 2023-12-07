@@ -1,6 +1,7 @@
 //use router.get
 const router = require("express").Router();
 // const { User } = require('../models');
+const productList = require("../public/js/productsAPI.json")
 
 router.get("/", async (req, res) => {
   try {
@@ -56,10 +57,18 @@ router.get("/login", async (req, res) => {
   }
 });
 
-//addition testing
-router.get("/signup", async (req, res) => {
+router.get("/signin", async (req, res) => {
   try {
     res.render("signed in");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/list", async (req, res) => {
+  try {
+    res.send(productList);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
