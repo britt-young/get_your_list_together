@@ -40,7 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 // app.use(express.static(path.join(__dirname, '/controllers/api')));
-// will the below code use ALL js filesin the controllers folder? therefore making the userRoutes.js file redundant?
+
 app.use(routes);
 // Use the userRoutes controller for requests to server-side authentication
 app.use('/auth', userRoutes);
