@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { User } = require("../../models");
-const firebase = require("@firebase/app");
-require("@firebase/auth");
+const firebase = require("firebase/app");
+require("firebase/auth");
+
 
 const firebaseConfig = {
     // Firebase configuration here
@@ -18,10 +19,13 @@ const firebaseConfig = {
 // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+// Authentication
+const auth = firebase.auth();
+
+
 //SIGN UP ROUTE---------------------------------------------------------------------------
 router.post('/signup', async (req, res) => {
   const { email, password, username } = req.body;
-
   try {
 // Firebase user signup logic
     const newUserCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -50,14 +54,14 @@ router.post('/signup', async (req, res) => {
 
 // Save user-related information in the session
 req.session.save(() => {
-  req.session.username = userData.username;
+  req.session.username = newUser.username;
   req.session.logged_in = true;
 });
 });
 
 //SIGN IN ROUTE---------------------------------------------------------------------------
 // Define a signin route
-router.post('/signin', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
