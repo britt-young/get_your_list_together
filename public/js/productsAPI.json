@@ -10,22 +10,9 @@
             },
             {
                 "description": "Whole Milk",
-                "size": "1 gal",
-                "price": 3.09,
+                "size": "1/2 gal",
+                "price": 1.99,
                 "id": 2
-
-            },
-            {
-                "description": "2% Reduced Fat Milk",
-                "size": "1/2 gal",
-                "price": 1.99,
-                "id": 3
-            },
-            {
-                "description": "Whole Milk",
-                "size": "1/2 gal",
-                "price": 1.99,
-                "id": 4
             }
         ]
     },
@@ -36,25 +23,13 @@
                 "description": "White eggs",
                 "size": "large",
                 "price": 2.19,
-                "id": 5
+                "id": 3
             },
             {
                 "description": "White eggs",
                 "size": "extra large",
                 "price": 3.19,
-                "id": 6
-            },
-            {
-                "description": "Brown eggs",
-                "size": "large",
-                "price": 3.79,
-                "id": 7
-            },
-            {
-                "description": "Brown eggs",
-                "size": "extra large",
-                "price": 4.79,
-                "id": 8
+                "id": 4
             }
         ]
     },
@@ -65,19 +40,13 @@
                 "description": "Roma Tomatoes",
                 "size": ".99/lb",
                 "price": 0.99,
-                "id": 9
-            },
-            {
-                "description": "Grape tomatoes",
-                "size": "10oz",
-                "price": 2.49,
-                "id": 10
+                "id": 5
             },
             {
                 "description": "Red tomatoes",
                 "size": "2.48/lb",
                 "price": 2.48,
-                "id": 11
+                "id": 6
             }
         ]
     },
@@ -88,13 +57,13 @@
                 "description": "Sara Lee Honey Wheat Sandwich Bread",
                 "size": "20oz",
                 "price": 3.99,
-                "id": 12
+                "id": 7
             },
             {
                 "description": "Nature's Own Butterbread Sliced White Bread",
                 "size": "20oz",
                 "price": 4.29,
-                "id": 13
+                "id": 8
             }
         ]
     },
@@ -105,19 +74,13 @@
                 "description": "Iceberge Lettuce",
                 "size": "1ct",
                 "price": 1.79,
-                "id": 14
+                "id": 9
             },
             {
                 "description": "Romaine Lettuce",
                 "size": "1ct",
                 "price": 2.29,
-                "id": 15
-            },
-            {
-                "description": "Classic Garden Salad Bag",
-                "size": "24oz",
-                "price": 2.99,
-                "id": 16
+                "id": 10
             }
         ]
     },
@@ -128,13 +91,47 @@
                 "description": "Fresh Strawberries",
                 "size": "1lb",
                 "price": 3.99,
-                "id": 17
+                "id": 11
             },
             {
                 "description": "Fresh Strawberries",
                 "size": "32oz",
                 "price": 8.29,
-                "id": 18
+                "id": 12
+            }
+        ]
+    },
+    {
+        "name": "chicken",
+        "items": [
+            {
+                "description": "Chicken Breast",
+                "size": "3.99/lb",
+                "price": 15,
+                "id": 13
+            },
+            {
+                "description": "Natural Sliced Oven Roasted Turkey Breast",
+                "size": "7oz",
+                "price": 7.79,
+                "id": 14
+            }
+        ]
+    },
+    {
+        "name": "rice",
+        "items": [
+            {
+                "description": "Long Grain White Rice",
+                "size": "32oz",
+                "price": 1.89,
+                "id": 15
+            },
+            {
+                "description": "Long Grain Brown Rice",
+                "size": "2lb",
+                "price": 1.89,
+                "id": 16
             }
         ]
     }

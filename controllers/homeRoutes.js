@@ -1,6 +1,7 @@
 //use router.get
 const router = require("express").Router();
 // const { User } = require('../models');
+const productList = require("../public/js/productsAPI.json")
 
 router.get("/", async (req, res) => {
   try {
@@ -47,15 +48,6 @@ router.get("/cart", async (req, res) => {
   }
 });
 
-// router.get("/kroger", async (req, res) => {
-//   try {
-//     res.render("kroger");
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get("/login", async (req, res) => {
   try {
     res.render("login");
@@ -64,5 +56,15 @@ router.get("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/list", async (req, res) => {
+  try {
+    res.send(productList);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
