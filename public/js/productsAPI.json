@@ -134,5 +134,22 @@
                 "id": 16
             }
         ]
+    },
+    {
+        "name": "onions",
+        "items": [
+            {
+                "description": "Red Onions Bag",
+                "size": "2lb",
+                "price": 2.49,
+                "id": 17
+            },
+            {
+                "description": "Yellow Onions Bag",
+                "size": "2lb",
+                "price": 2.69,
+                "id": 18
+            }
+        ]
     }
 ]
