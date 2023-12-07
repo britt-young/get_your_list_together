@@ -22,15 +22,15 @@ Log in to save your lists.
 
 
 ## Credits
-[Britt Young] (https://github.com/britt-young/)
-[Maggie McCausland] (https://github.com/maggiemcc)
-[Gianfranco De Vettori] (https://github.com/Gianfrancodev/)
-[Jonathon Montgomery] (https://github.com/Oddux/)
+- [Britt Young] (https://github.com/britt-young/)
+- [Maggie McCausland] (https://github.com/maggiemcc)
+- [Gianfranco De Vettori] (https://github.com/Gianfrancodev/)
+- [Jonathon Montgomery] (https://github.com/Oddux/)
 
 ## License
 
 MPL-2.0
-[![MPL-2.0](https://img.shields.io/badge/license-MPL-2.0-blue.svg)](https://opensource.org/licenses/MPL-2.0)
+[![MPL-2.0](https://img.shields.io/badge/license-MPL%202.0-blue.svg)](https://opensource.org/licenses/MPL-2.0)
 
 ## Features
 
