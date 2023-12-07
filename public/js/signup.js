@@ -2,7 +2,7 @@
   function submitSignupForm() {
 
 // Gather form data
-    const username = document.getElementById('username').value;
+    const username = document.getElementById('username-signup').value;
     const email = document.getElementById('email-signup').value;
     const password = document.getElementById('password-signup').value;
   
