@@ -22,6 +22,7 @@ async function getProducts(term) {
     let productsResponse = await fetch(productsUrl, {
       method: "GET",
       cache: "no-cache",
+      // mode: 'no-cors',
       headers: {
         Authorization: `bearer ${accessToken}`,
         "Content-Type": "application/json; charset=utf-8"

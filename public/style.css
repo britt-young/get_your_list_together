@@ -121,8 +121,10 @@ a {
 }
 
 .product img {
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 150px;
+    max-width: 150px;
+    /* max-height: 250px; */
 }
 
 .recipes-page .results {

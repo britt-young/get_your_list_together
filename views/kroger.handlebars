@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kroger API</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-</head>
-<body>
-
 <div id="kroger-data">
   <!-- Handlebars template will be inserted here -->
 </div>
-
-<script id="kroger-template" type="text/x-handlebars-template">
+<script type="text/x-handlebars-template" id="kroger-template">
   {{#each items}}
     <p>{{name}} - {{price}}</p>
   {{/each}}
@@ -20,25 +9,53 @@
 
 <script>
   // Fetch data from Kroger API
-  fetch('https://api.kroger.com/v1/', {
+
+var krogerTokenUrl = 'https://api.kroger.com/v1/connect/oauth2/token';
+var krogerAuthorizationUrl = 'https://api.kroger.com/v1/connect/oauth2/authorize';
+var krogerClientID = 'https://api.kroger.com/v1/connect/oauth2/authorize';
+var krogerClientSecret = 'getyoulisttogether-400a8559164c00e45aec22b6f1c085a93991240100495179599';
+var krogerScopes = 'product.compact';
+var krogerToken = 'eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJnZXR5b3VsaXN0dG9nZXRoZXItNDAwYTg1NTkxNjRjMDBlNDVhZWMyMmI2ZjFjMDg1YTkzOTkxMjQwMTAwNDk1MTc5NTk5IiwiZXhwIjoxNzAxOTMwODQ2LCJpYXQiOjE3MDE5MjkwNDEsImlzcyI6ImFwaS5rcm9nZXIuY29tIiwic3ViIjoiMWQwNTEwNGEtZGQyYi01NGMwLWIxZTgtYjcxM2YxNTNlNzA4Iiwic2NvcGUiOiJwcm9kdWN0LmNvbXBhY3QiLCJhdXRoQXQiOjE3MDE5MjkwNDY1OTQzNDUxOTIsImF6cCI6ImdldHlvdWxpc3R0b2dldGhlci00MDBhODU1OTE2NGMwMGU0NWFlYzIyYjZmMWMwODVhOTM5OTEyNDAxMDA0OTUxNzk1OTkifQ.xEeboNrggI9kyqMu-67rSycPWAYRI_rkTDzZtU4rRLT2s-HzyIGQSv7xxRyikBnfYjBqPJu5K1CQmez4-NPEMsuswmn-bNT8pVKIFbfZkebHpR0czHLBYFtdaf7cH7z9zjThMyFe6y8y_Oyb_sMTtSUyqNvJfsE8Pm8dpdtSMPV1PWWw1rI4YmsB9bw8FSpejX3wnebm694Qrfo6XgEfUKDW6TqdltP6DfGu_84Lbd4JujzeIlwSc_UKbCrVqVRSsWXmSf6M9Oe7KPLEwdxpg0bBB5qSBHeFwRsxuvVa1q8sPOi9vYEmQrK2l6g6Xdw7RX6-StK-5tnXmJ4QkhQLjQ';
+
+  fetch('https://api.kroger.com/v1/products?filter.term=milk&filter.limit=2', {
     method: 'GET',
     headers: {
-      'Authorization': 'Bearer getyourlisttogether1-49d7946bc26ac76a87d11f741197d9938317939603563387897',
+      'Authorization': `Bearer ${krogerToken}`,
       'Content-Type': 'application/json',
     },
   })
-    .then(response => response.json())
-    .then(data => {
-      const source = document.getElementById("kroger-template").innerHTML;
-      const template = Handlebars.compile(source);
-      const html = template({ items: data }); // Assuming the data structure has an 'items' property
+  .then(response => response.json())
+  .then(data => {
+    let list = data.data
 
-      document.getElementById("kroger-data").innerHTML = html;
+    console.log(">",data);
+
+    list.forEach((product) => {
+        let product_name = product.description;
+      console.log(product_name)
     })
+    
+
+      const source = document.getElementById("kroger-data");
+
+      source.innerHTML = data;
+    }
+  )
+   
     .catch(error => {
       console.error('Fetch Error:', error);
     });
 </script>
 
-</body>
-</html>
+ {{!-- .then(response => {
+      response.json();
+      console.log("response:", response)
+    })
+    .then(data => {
+      console.log("data:", data)
+      const source = document.getElementById("kroger-template").innerHTML;
+      const template = Handlebars.compile(source);
+      const html = template({ items: data }); // Assuming the data structure has an 'items' property
+
+      document.getElementById("kroger-data").innerHTML = html;
+    }) --}}
