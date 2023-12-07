@@ -1,92 +1,17 @@
-{{! Recipes Page - example/placeholder data ---- Replace with commented out code below with data! }}
+{{! Recipes Page Content }}
 <div class="recipes-page">
   <div class="recipe-search">
     <h2>Search for recipes</h2>
     <div class="search-bar">
       <input type="text" placeholder="pizza, tacos, pie" id="input" />
-      <button type="submit" id="submit-button">Search</button>
+      <button type="submit" id="submit-button" onClick="findRecipes()">Search</button>
     </div>
 
-    <div class="results">
-      <div class="recipe">
-        <img src="/example-images/pizza.jpeg" alt="pizza" />
-        <div>
-          <h3 id="name">Pulled Pork Pizza</h3>
-          <h3 id="type">italian</h3>
-        </div>
-        <div class="recipe-buttons">
-          <a
-            id="choice"
-            href="https://www.prevention.com/food-nutrition/recipes/a20496664/pulled-pork-pizza/"
-            target="_blank"
-          ><button>See How To Cook</button></a>
-          <button id="choice">Save</button>
-        </div>
-      </div>
-
-      <div class="recipe">
-        <img src="/example-images/pizza.jpeg" alt="pizza" />
-        <div>
-          <h3 id="name">Pulled Pork Pizza</h3>
-          <h3 id="type">italian</h3>
-        </div>
-        <div class="recipe-buttons">
-          <a
-            id="choice"
-            href="https://www.prevention.com/food-nutrition/recipes/a20496664/pulled-pork-pizza/"
-            target="_blank"
-          ><button>See How To Cook</button></a>
-          <button id="choice">Save</button>
-        </div>
-      </div>
-
-            <div class="recipe">
-        <img src="/example-images/pizza.jpeg" alt="pizza" />
-        <div>
-          <h3 id="name">Pulled Pork Pizza</h3>
-          <h3 id="type">italian</h3>
-        </div>
-        <div class="recipe-buttons">
-          <a
-            id="choice"
-            href="https://www.prevention.com/food-nutrition/recipes/a20496664/pulled-pork-pizza/"
-            target="_blank"
-          ><button>See How To Cook</button></a>
-          <button id="choice">Save</button>
-        </div>
+      <div class="results">
       </div>
     </div>
   </div>
 </div>
 
-
-{{! REPLACE ABOVE CODE WITH BELOW CODE (with appropriate adjustments) WHEN YOU HAVE FILES/DATA }}
-{{!-- <div class="recipes-page">
-  <div class="recipe-search">
-    <h2>Search for recipes</h2>
-    <div class="search-bar">
-      <input type="text" placeholder="pizza, tacos, pie" id="input" />
-      <button type="submit" id="submit-button">Search</button>
-    </div>
-
-    <div class="results">
-    {{#each as || }}
-      <div class="recipe">
-        <img src="/example-images/pizza.jpeg" alt="pizza" />
-        <div>
-          <h3 id="name">{{.name}}</h3>
-          <h3 id="type">{{.type}}</h3>
-        </div>
-        <div class="recipe-buttons">
-          <a
-            id="choice"
-            href=`{{.link}}`
-            target="_blank"
-          ><button>See How To Cook</button></a>
-          <button id="choice">Save</button>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-  </div>
-</div> --}}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/recipes.js"></script>
