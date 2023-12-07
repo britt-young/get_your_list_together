@@ -1,4 +1,10 @@
 const express = require("express");
+<<<<<<< HEAD
+const sequelize = require("../../config/connection");
+const firebase = require("@firebase/app");
+require("@firebase/auth");
+=======
+>>>>>>> b566ef8198d439c1f4a581519476445981432c15
 const router = express.Router();
 const { User } = require("../../models");
 const firebase = require("@firebase/app");

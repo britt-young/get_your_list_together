@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kroger API</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
+<body>
+
+<div id="kroger-data">
+  <!-- Handlebars template will be inserted here -->
+</div>
+
+<script id="kroger-template" type="text/x-handlebars-template">
+  {{#each items}}
+    <p>{{name}} - {{price}}</p>
+  {{/each}}
+</script>
+
+<script>
+  // Fetch data from Kroger API
+  fetch('https://api.kroger.com/v1/', {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer getyourlisttogether1-49d7946bc26ac76a87d11f741197d9938317939603563387897',
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then(data => {
+      const source = document.getElementById("kroger-template").innerHTML;
+      const template = Handlebars.compile(source);
+      const html = template({ items: data }); // Assuming the data structure has an 'items' property
+
+      document.getElementById("kroger-data").innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Fetch Error:', error);
+    });
+</script>
+
+</body>
+</html>
