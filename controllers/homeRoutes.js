@@ -57,6 +57,15 @@ router.get("/login", async (req, res) => {
   }
 });
 
+router.get("/signin", async (req, res) => {
+  try {
+    res.render("signed in");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get("/list", async (req, res) => {
   try {
     res.send(productList);
@@ -65,6 +74,5 @@ router.get("/list", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;

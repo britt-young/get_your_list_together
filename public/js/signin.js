@@ -1,8 +1,8 @@
 // User Sign-In ------------------------------------------------
 function submitSigninForm() {
 // Gather form data
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('email-login').value;
+    const password = document.getElementById('password-login').value;
   
 // Send the form data to the server using a fetch request
     fetch('/signin', {
@@ -24,3 +24,6 @@ function submitSigninForm() {
       console.error('Error:', error);
     });
   }
+
+//const signin = document.getElementById('loginBtn');
+//signin.addEventListener('click', submitSigninForm);
