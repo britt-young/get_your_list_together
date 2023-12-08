@@ -1,0 +1,316 @@
+// LESS VARIABLES
+// Background Colors
+@main-bk: green;
+@sec-bk: #fff;
+@tri-bk: none;
+
+// Text Colors
+@main-text: #000;
+@sec-text: #fff;
+@tri-text: green;
+
+// Padding
+@main-p: 2%;
+@sec-p: 2% 1%;
+@tri-p: 0;
+
+// Margin
+@main-m: 0;
+@sec-m: auto;
+@tri-m: 2% auto;
+
+// Borders
+@border-radius: 10px;
+
+// BREAKPOINTS
+// DESKTOP
+@min770: ~"(min-width: 770px)";
+
+// TABLET/MOBILE
+@max769: ~"(max-width: 769px)";
+
+
+
+
+* {
+    padding: @tri-p;
+    margin: @main-m;
+};
+
+header, footer {
+    background-color: @main-bk;
+    color: @sec-text;
+    min-height: 50px;
+    padding: @main-p;
+};
+
+
+// HEADER
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: auto;
+};
+
+header a {
+    padding: @sec-p;
+    background-color: @tri-bk;
+    margin: @main-m;
+    border: 0;
+    border-radius: @border-radius;
+    text-decoration: none;
+};
+
+header h1 {
+    font-size: 30px;
+};
+
+header button {
+    background-color: @tri-bk;
+    color: @tri-text;
+    width: 70px;
+    padding: @main-p;
+    margin: @main-m;
+    border: 0px;
+    border-radius: @border-radius; 
+};
+
+
+// MAIN
+main {
+    padding: @main-p;
+    text-align: center;
+    min-height: 80vh;
+};
+
+main button {
+    padding: @sec-p;
+    background-color: @main-bk;
+    color: @sec-text;
+    margin: 2% 1%;
+    border: 0;
+    border-radius: @border-radius; 
+};
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+};
+
+a {
+    padding: @sec-p;
+    background-color: @main-bk;
+    margin: @main-m;
+    border: 0;
+    border-radius: @border-radius;  
+    text-decoration: none;
+};
+
+#name, #nav-link {
+    background-color: @tri-bk;
+    text-decoration: none;
+    color: @sec-text;
+    margin: @main-m;
+    padding: @tri-p;
+};
+
+#name, #price {
+    margin: @sec-m;
+    color: @main-text;
+};
+
+.landing-content{
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto 0 auto;
+    padding: 3%;
+};
+
+.produce-page {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: @main-m;
+};
+
+.product-search, .shopping-cart {
+    border: 2px solid @main-bk;
+    border-radius: @border-radius;
+    width: 85%;
+    height: auto;
+    min-height: 600px;
+    padding: 1%;
+    margin: 2%;
+};
+
+.groceries {
+    min-height: 500px;
+};
+
+.groceries .product  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: left;
+};
+
+.search-bar {
+    margin: @sec-m;
+};
+
+.search-bar input {
+    width: 50%;
+    padding: 1%;
+};
+
+.product, .recipes-page .recipe {
+    text-align: left;
+    border: 2px solid @main-bk;
+    border-radius: @border-radius;
+    padding: @main-p;
+    display: flex;
+    justify-content: space-between;
+    margin: @tri-m;
+};
+
+.results .product  {
+    text-align: left;
+    border: 2px solid green;
+    border-radius: @border-radius;
+    padding: @main-p;
+    display: flex;
+    justify-content: space-between;
+    margin: @sec-m;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: left;
+}
+
+.recipes-page .results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: @tri-m;
+};
+
+.recipes-page .recipe {
+    display: block;
+    text-align: center;
+    max-width: 300px;
+    margin: 2%;
+};
+
+.recipe #choice {
+    display: block;
+    width: 100%;
+    margin: 3% auto;
+    padding: 2% 0;
+};
+
+.item {
+    text-align: left;
+    border: 2px solid black;
+    border-radius: @border-radius;
+    padding: @main-p;
+    display: flex;
+    justify-content: space-between;
+    margin: @sec-m;
+};
+
+.user-account, .user-cart {
+    margin: @tri-m;
+    justify-content: center;
+    text-align: center;
+};
+
+.user-cart h2 {
+    margin: @tri-m;
+};
+
+.login-account, .create-account {
+    margin: @tri-m;
+    border: 2px solid green;
+    border-radius: @border-radius;
+    width: 90%;
+    max-width: 700px;
+    padding: 2%;
+};
+
+.login-form div, .signup-form div {
+    display: block;
+    width: 100%;
+    padding: 2% 1%;
+};
+
+.budget {
+    margin: @sec-m;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 550px;
+};
+
+.cart-results {
+    width: 100%;
+    max-width: 700px;
+    margin: @tri-m;
+};
+
+.results .product  {
+    display: block;
+    text-align: center;
+    height: fit-content;
+    width: 95%;
+    min-width: 200px;
+    max-width: 500px;
+};
+
+.results .product button {
+    width: 100%;
+};
+
+#amountDiv {
+    display: flex;
+    flex-wrap: wrap;
+    width:fit-content;
+    justify-content: center;
+    text-align: center;
+    margin: @sec-m;
+};
+
+.total-section {
+    text-align: left;
+    width: 90%;
+    margin: @tri-m;
+    max-width: 650px;
+    border: 2px solid green;
+    border-radius: @border-radius;
+    padding: 2%;
+};
+
+.total-section h3 {
+    /* border-top: 2px solid black; */
+    margin-bottom: 2%;
+};
+
+footer {
+    text-align: center;
+    height: auto;
+    margin: @tri-m;
+    padding: 2%;
+};
+
+
+
+// footer {};
+
+// DESKTOP
+@media @min770 {
+
+}
+
+// TABLET/MOBILE
+@media @max769 {
+
+}
