@@ -30,7 +30,7 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [10],             // Ensures that the password is at least 10 characters long
+          len: [5],             // Ensures that the password is at least 10 characters long
         },
       },
       email: {
