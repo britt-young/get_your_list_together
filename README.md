@@ -13,13 +13,18 @@ As a young professional, I want to be able to meal prep and manage my grocery sp
 
 ## Installation
 
-
+Run "npm install".
+Login to mySQL with "mySQL -u root -p"
+Run "npm start"
+Deploy to Heroku.
 
 ## Usage
 
 To use, just visit our website!
 Log in to save your lists.
 
+## Presentation
+[Slidedeck](https://docs.google.com/presentation/d/1wptXi1c1KTAIi7eMU2_Cv45cZ6uiOQnXaUe5grwy3aY/edit#slide=id.p)
 
 ## Credits
 - [Britt Young] (https://github.com/britt-young/)
