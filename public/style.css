@@ -1,0 +1,360 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+header, footer {
+    background-color: green;
+    color: white;
+    min-height: 50px;
+}
+
+header a {
+    padding: 1% 2%;
+    background-color: white;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;
+}
+header button {
+    background-color: transparent;
+    color: green;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: auto;
+}
+
+main {
+    padding: 2%;
+    text-align: center;
+    min-height: 80vh;
+}
+
+button {
+    padding: 1% 2%;
+    background-color: green;
+    color: white;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;  
+}
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+a {
+    padding: 1% 2%;
+    background-color: green;
+    margin: 0;
+    border: 0;
+    border-radius: 10px;  
+    text-decoration: none;
+}
+
+#name, #nav-link {
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+#name, #price {
+    margin: auto;
+}
+
+#nav-link{
+    color: white;
+}
+
+.landing-content{
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto 0 auto;
+    padding: 3%;
+}
+
+.produce-page {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product-search, .shopping-cart {
+    border: 2px solid green;
+    border-radius: 10px;
+    width: 85%;
+    height: auto;
+    min-height: 600px;
+    padding: 1%;
+    margin: 2%;
+}
+
+.groceries {
+    min-height: 500px;
+}
+
+.groceries .product  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: left;
+}
+
+
+.search-bar {
+    margin: 2% 0;
+}
+
+.search-bar input {
+    width: 50%;
+    padding: 1%;
+}
+
+.product, .recipes-page .recipe {
+    text-align: left;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+}
+
+.results .product  {
+    text-align: left;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: left;
+}
+
+.recipes-page .results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.recipes-page .recipe {
+    display: block;
+    text-align: center;
+    max-width: 300px;
+}
+
+.recipe #choice {
+    display: block;
+    width: 100%;
+    margin: 3% auto;
+    padding: 2% 0;
+}
+
+.item {
+    text-align: left;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2% 0;
+}
+
+.user-account, .user-cart {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.user-cart h2 {
+    margin: 2% auto;
+}
+
+.login-account, .create-account {
+    margin: 2% auto;
+    border: 2px solid green;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    padding: 2%;
+}
+
+.login-form div, .signup-form div {
+    display: block;
+    width: 100%;
+    padding: 2% 1%;
+}
+
+.budget {
+    margin: 2% auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 550px;
+}
+
+.cart-results {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.results .product  {
+    display: block;
+    text-align: center;
+    height: fit-content;
+    width: 95%;
+    min-width: 200px;
+    max-width: 500px;
+}
+
+.results .product button {
+    width: 100%;
+}
+
+#amountDiv {
+    display: flex;
+    flex-wrap: wrap;
+    width:fit-content;
+    justify-content: center;
+    text-align: center;
+    margin: 2% auto;
+}
+
+.total-section {
+    text-align: left;
+    width: 90%;
+    margin: auto;
+    max-width: 650px;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.total-section h3 {
+    /* border-top: 2px solid black; */
+    margin-bottom: 2%;
+}
+
+footer {
+    text-align: center;
+    height: auto;
+    margin: auto;
+    padding: 2%;
+}
+
+@media only screen and (min-width: 901px) {
+    header, footer {
+        width: auto;
+        height: 50px;
+        padding: 2%;
+    };
+}
+
+
+@media only screen and (max-width: 900px) {
+   #nav-link h1 {
+        font-size: 25px;
+    };
+
+    header, footer {
+        height: fit-content;
+        padding: 2% 1%;
+        min-height: 150px;
+    }
+
+    .header-content {
+        display: block;
+        padding: 2%;
+    };
+
+    main {
+        min-height: 80vh;
+    }
+
+    .groceries {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .groceries .product  {
+        display: block;
+        text-align: center;
+        height: fit-content;
+        width: 45%;
+        min-width: 200px;
+    }
+
+    .groceries .product h4, .groceries .product button  {
+        width: 98%;
+        margin: 2%;
+    }
+
+
+    .product-search, .shopping-cart {
+        border: 2px solid green;
+        border-radius: 10px;
+        width: 85%;
+        height: auto;
+        min-height: 600px;
+        padding: 1%;
+        margin: 2%;
+    }
+
+    .produce-page {
+        display: block;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+    };
+
+    .product-search, .shopping-cart {
+        max-width: 700px;
+        height: auto;
+    };
+
+    .results .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+
+
+    .recipe {
+        text-align: left;
+        border: 2px solid green;
+        border-radius: 10px;
+        padding: 2%;
+        display: block;
+        justify-content: space-between;
+        margin: 2% auto;
+        text-align: center;
+        max-width: 350px;
+    }
+
+    .recipe img {
+        margin: auto;
+        width: 90%;
+        border-radius: 5px;
+    }
+
+    .budget {
+        margin: 2% auto;
+        display: block;
+        justify-content: space-between;
+        width: 98%;
+        max-width: 550px;
+    }
+}

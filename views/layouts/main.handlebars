@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Your List Together</title>
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+  </head>
+  <body>
+    <header>
+        <div class="header-content">
+            <a id="nav-link" href="homepage"><h1>Get Your List Together!</h1></a>
+            {{#if logged_in}}
+            <a id="logout"><button id="signoutBtn">Logout</button></a>
+            {{else}}
+            <a href="login"><button>Login</button></a>
+            {{/if}}
+        </div>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+
+    <footer>
+        <h5>© Group 7 2023</h5>
+    </footer>
+
+  </body>
+</html>
+
+<!-- Include Firebase SDK -->
+{{!-- <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script> --}}
+
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
