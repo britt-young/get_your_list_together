@@ -9,7 +9,7 @@ const userCreds = [
           },
         password: 'password12345',
         validate: {
-            len: [5],             // Ensures that the password is at least 10 characters long
+            len: [5],             // Ensures that the password is at least 5 characters long
           },
         email: 'brittney.r.young80@gmail.com',
     },
@@ -21,7 +21,7 @@ const userCreds = [
           },
         password: 'password005',
         validate: {
-            len: [5],             // Ensures that the password is at least 10 characters long
+            len: [5],             // Ensures that the password is at least 5 characters long
           },
         email: 'brittney.r.young81@gmail.com',
     },
@@ -33,8 +33,8 @@ const userCreds = [
           },
         password: 'password100',
         validate: {
-            len: [5],             // Ensures that the password is at least 10 characters long
+            len: [5],             // Ensures that the password is at least 5 characters long
           },
         email: 'brittney.r.young82@gmail.com',
     },
-]
+];
