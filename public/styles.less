@@ -49,7 +49,7 @@ header h1 {
 main {
     padding: @main-p;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 };
 
 main button {
@@ -94,7 +94,7 @@ a {
 };
 
 .produce-page {
-    margin: @main-m;
+    margin: @tri-m;
     display: flex;
     justify-content: space-evenly;
     max-width: 1200px;
@@ -115,6 +115,7 @@ a {
 
 .groceries .product  {
     .displayGrid;
+    padding: 2%;
 };
 
 .search-bar {
@@ -127,7 +128,7 @@ a {
 };
 
 .product, .recipes-page .recipe {
-    padding: @main-p;
+    padding: @tri-p;
     margin: @tri-m;
     .borderTwo;
     .displayFlex;
@@ -135,16 +136,16 @@ a {
 
 .results .product  {
     padding: @main-p;
-    margin: @sec-m;
+    margin: @tri-m;
     .borderTwo;
     .displayGrid;
     justify-content: space-between;
+    margin: 2%;
 }
 
 .recipes-page .results {
     margin: @tri-m;
     .displayFlex;
-
     flex-wrap: wrap;
     max-width: 1200px;
 };
@@ -224,6 +225,7 @@ a {
 
 .results .product button {
     width: 100%;
+    margin: @tri-m;
 };
 
 #amountDiv {
@@ -268,6 +270,15 @@ footer {
         height: 50px;
     };
 
+    .results .product  {
+        padding: @main-p;
+        margin: @tri-m;
+        .borderTwo;
+        .displayGrid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 2%;
+    };
+
 };
 
 // TABLET/MOBILE
@@ -290,8 +301,9 @@ footer {
         max-width: 200px;
     };
 
-    .groceries .product  {
+    .groceries .product {
         .displayBlock;
+        margin: @sec-m;
         text-align: center;
         height: fit-content;
         width: 45%;
@@ -305,9 +317,9 @@ footer {
 
     .product-search, .shopping-cart {
         padding: 1%;
-        margin: 2%;
+        margin: 2% auto;
         .borderTwo;
-        width: 85%;
+        width: 90%;
         height: auto;
         min-height: 600px;
     };
@@ -325,9 +337,9 @@ footer {
     };
 
     .results .product {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        width: 100%;
+        .displayBlock;
+        width: 95%;
+        grid-column-gap: none;
     };
 
     .recipe {
