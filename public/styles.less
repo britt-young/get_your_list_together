@@ -19,7 +19,7 @@ header {
     .displayFlex;
     width: 95%;
     height: auto;
-    margin: auto;
+    margin: @sec-m;
 };
 
 header a {
@@ -115,7 +115,7 @@ a {
 
 .groceries .product  {
     .displayGrid;
-    padding: 2%;
+    padding: @main-p;
 };
 
 .search-bar {
@@ -168,7 +168,7 @@ a {
     margin: 3% auto;
 
     .displayBlock;
-    width: 100%;
+    width: 90%;
 };
 
 .item {
@@ -188,7 +188,7 @@ a {
 };
 
 .login-account, .create-account {
-    padding: 2%;
+    padding: @main-p;
     margin: @tri-m;
     .borderTwo;
     width: 90%;
@@ -196,7 +196,7 @@ a {
 };
 
 .login-form div, .signup-form div {
-    padding: 2% 1%;
+    padding: @sec-p;
     .displayBlock;
     width: 100%;
 };
@@ -208,11 +208,17 @@ a {
     max-width: 550px;
 };
 
-.cart-results {
+.cart-results .product {
     margin: @tri-m;
-    width: 100%;
-    max-width: 700px;
+    width: 90%;
+    max-width: 650px;
+    padding: 1%;
 };
+
+.cart-results .product h4 {
+    height: auto;
+    margin: @sec-m;
+}
 
 .results .product  {
     .displayBlock;
@@ -223,21 +229,27 @@ a {
     max-width: 500px;
 };
 
-.results .product button {
+#addItem, #removeItem {
     width: 100%;
     margin: @tri-m;
+    height: 25px;
+    max-width: 80px;
 };
+
+.product #removeItem {
+    padding: @tri-p;
+}
 
 #amountDiv {
     margin: @sec-m;
     display: flex;
     flex-wrap: wrap;
     .AlignContent;
-    width:fit-content;
+    width: fit-content;
 };
 
 .total-section {
-    padding: 2%;
+    padding: @main-p;
     margin: @tri-m;
     .borderTwo;
     text-align: left;
@@ -336,10 +348,11 @@ footer {
         height: auto;
     };
 
-    .results .product {
+    .results .product, .cart-results .product {
         .displayBlock;
         width: 95%;
         grid-column-gap: none;
+        text-align: center
     };
 
     .recipe {
