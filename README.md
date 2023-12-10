@@ -23,7 +23,7 @@ No Installation is needed to use this project. If you would like to build on to 
 - Create an account and deploy to Heroku.
 
 ## Deployed Project Link
-[Click to view our deployed GitHub Page](https://jjthedev.github.io/Fitness-App/)
+[Click to view our deployed GitHub Page]()
 
 ## Screenshot
 ![](/project-screenshot.png)
