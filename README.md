@@ -8,6 +8,7 @@ As a user, I want to be able to meal prep and manage my grocery spending so that
 
 - [Installation](#installation)
 - [Deployed Project Link](#deployed-project-link)
+- [Original GitHub Group Project Link](#original-github-group-project-link)
 - [Screenshot](#screenshot)
 - [Presentation](#presentation)
 - [Tools Used](#tools-used)
@@ -21,6 +22,9 @@ No Installation is needed to use this project. If you would like to build on to 
 - Login to mySQL with "mySQL -u root -p"
 - Run "npm start"
 - Create an account and deploy to Heroku.
+
+## Original GitHub Group Project Link
+[Click to view our deployed GitHub Page](https://github.com/britt-young/get_your_list_together)
 
 ## Deployed Project Link
 [Click to view our deployed GitHub Page]()

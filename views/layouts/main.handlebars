@@ -15,11 +15,12 @@
       <a id="nav-link" href="homepage">
         <h1>Get Your List Together!</h1>
       </a>
-      {{#if logged_in}}
-      <a id="button-link" id="logout"><button id="signoutBtn">Logout</button></a>
-      {{else}}
-      <a id="button-link" href="login"><button>Login</button></a>
-      {{/if}}
+        {{#if logged_in}}
+        <a id="button-link"><button class="button-link" id="logout">logout</button></a>
+        {{else}}
+        <a id="button-link" href="/login"><button class="button-link" id="login">login</button></a>
+
+        {{/if}}
     </div>
   </header>
   <main>
@@ -30,11 +31,10 @@
     <h5>© Group 7 2023</h5>
   </footer>
 
+    <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
-
-<!-- Include Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>

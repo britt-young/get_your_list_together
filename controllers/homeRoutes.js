@@ -1,15 +1,35 @@
 //use router.get
 const router = require("express").Router();
-// const { User } = require('../models');
-const productList = require("../public/js/productsAPI.json")
+const { User } = require('../models');
+const withAuth = require("../utils/auth");
+const productList = require("../public/js/productsAPI.json");
 
-router.get("/", async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    res.render("homepage");
+    // Find the logged in user based on the session ID
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
+    });
+
+    const users = userData.map((project) => project.get({ plain: true }));
+
+    res.render('homepage', {
+      users,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
 });
 
 router.get("/homepage", async (req, res) => {
@@ -21,54 +41,70 @@ router.get("/homepage", async (req, res) => {
   }
 });
 
-router.get("/produce", async (req, res) => {
+router.get("/produce", withAuth, async (req, res) => {
   try {
-    res.render("produce");
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+    res.render('produce', {
+      ...user,
+      logged_in: true
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/recipes", async (req, res) => {
+router.get("/recipes", withAuth, async (req, res) => {
   try {
-    res.render("recipes");
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+    res.render('recipes', {
+      ...user,
+      logged_in: true
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/cart", async (req, res) => {
+router.get("/cart", withAuth, async (req, res) => {
   try {
-    res.render("cart");
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+    res.render('cart', {
+      ...user,
+      logged_in: true
+    });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/login", async (req, res) => {
+router.get("/list", withAuth, async (req, res) => {
   try {
-    res.render("login");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
 
-router.get("/signin", async (req, res) => {
-  try {
-    res.render("signed in");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+    const user = userData.get({ plain: true });
+    res.send(productList, {
+      ...user,
+      logged_in: true
+    });
 
-router.get("/list", async (req, res) => {
-  try {
-    res.send(productList);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

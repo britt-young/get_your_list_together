@@ -1,10 +1,11 @@
-{{!-- Login/Signup page --}}
+{{!-- Login/Signup page--}}
+
 <div class="user-account">
   <div class="login-account">
     <h2>Login</h2>
     <form class="login-form">
       <div>
-        <label for="username-signup">username:</label>
+        <label for="email-login">email:</label>
         <input class="form-input" type="text" id="email-login" />
       </div>
       <div>
@@ -12,40 +13,33 @@
         <input class="form-input" type="password" id="password-login" />
       </div>
       <div>
-        <button type="submit" id="loginBtn">login</button>
+        <button type="submit">login</button>
       </div>
     </form>
   </div>
 
   <div class="create-account">
     <h2>Sign Up</h2>
-    <form class="form signup-form"  >
-      <div>
-        <label for="username-signup">username:</label>
-        <input class="form-input" type="text" id="username-signup" />
+    <form class="signup-form">
+      <div class="form-group">
+        <label for="name-signup">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
       </div>
-      <div>
+      <div class="form-group">
         <label for="email-signup">email:</label>
         <input class="form-input" type="text" id="email-signup" />
       </div>
-      <div>
+      <div class="form-group">
         <label for="password-signup">password:</label>
         <input class="form-input" type="password" id="password-signup" />
       </div>
-      <div>
-        <button type="submit" id="signupBtn">signup</button>
+      <div class="form-group">
+        <button type="submit">signup</button>
       </div>
     </form>
   </div>
 </div>
+ </div>
 
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+<script src="/js/login.js"></script>
 
-
-<script type="application/json" src="/./controllers/api/userRoutes.js"></script> 
-
-<script src="/js/signin.js"></script>
-<script src="/js/signup.js"></script>  
-<script src="/js/signout.js"></script>
