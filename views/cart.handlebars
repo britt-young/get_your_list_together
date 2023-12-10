@@ -1,12 +1,14 @@
-{{! User cart/ budget page with placeholder example content ---- Replace with commented out code below with data! }}
-{{!-- {{#if logged_in}} --}}
+{{! User cart/ budget page }}
+{{#if logged_in}}
+<h2 style="text-transform: uppercase;">{{name}}'s Budget</h2>
+{{/if}}
 
 <div class="user-cart">
-      <div class="budget">
-      <h2>BUDGET:</h2>
-      <input type="number" placeholder="200" id="input"/>
-      <button type="submit" id="submit-button" onclick="getBudget()">Save</button>
-    </div>
+  <div class="budget">
+    <h2>BUDGET:</h2>
+    <input type="number" placeholder="200" id="input" />
+    <button type="submit" id="submit-button" onclick="getBudget()">Save</button>
+  </div>
 
   <div class="cart-results">
   </div>
@@ -17,12 +19,5 @@
     <h3 id="money-left"></h3>
   </div>
 </div>
-
-{{!-- {{else}}
-<div class="user-cart">
-  <h2>Please Login to view your cart</h2>
-  <a href="/login"><button>Login</button></a>
-</div>
-{{/if}} --}}
 
 <script src="/js/cart.js"></script>

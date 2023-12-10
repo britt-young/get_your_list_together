@@ -15,12 +15,11 @@
       <a id="nav-link" href="homepage">
         <h1>Get Your List Together!</h1>
       </a>
-        {{#if logged_in}}
-        <a id="button-link"><button class="button-link" id="logout">logout</button></a>
-        {{else}}
-        <a id="button-link" href="/login"><button class="button-link" id="login">login</button></a>
-
-        {{/if}}
+      {{#if logged_in}}
+      <a id="button-link"><button class="button-link" id="logout">logout</button></a>
+      {{else}}
+      <a id="button-link" href="/login"><button class="button-link" id="login">login</button></a>
+      {{/if}}
     </div>
   </header>
   <main>
@@ -31,7 +30,7 @@
     <h5>© Group 7 2023</h5>
   </footer>
 
-    <!-- Render script for logged in users only -->
+  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}

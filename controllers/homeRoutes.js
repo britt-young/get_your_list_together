@@ -6,16 +6,14 @@ const productList = require("../public/js/productsAPI.json");
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findAll({
+    const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const user = userData.get({ plain: true });
 
     res.render('homepage', {
-      users,
+      user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -32,9 +30,17 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get("/homepage", async (req, res) => {
+router.get("/homepage", withAuth, async (req, res) => {
   try {
-    res.render("homepage");
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    const user = userData.get({ plain: true });
+    res.render('homepage', {
+      ...user,
+      logged_in: true
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
