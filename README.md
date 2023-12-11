@@ -20,6 +20,7 @@ No Installation is needed to use this project. If you would like to build on to 
 - git clone or fork the project
 - Run "npm install"
 - Login to mySQL with "mySQL -u root -p"
+- Run node seeds/seed
 - Run "npm start"
 - Create an account and deploy to Heroku.
 
