@@ -27,7 +27,7 @@ No Installation is needed to use this project. If you would like to build on to 
 [Click to view our deployed GitHub Page](https://github.com/britt-young/get_your_list_together)
 
 ## Deployed Project Link
-[Click to view our deployed GitHub Page]()
+[Click to view our deployed GitHub Page](https://group-2-gylt-ce71d82f3e64.herokuapp.com/login)
 
 ## Screenshot
 ![](/project-screenshot.png)
