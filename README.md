@@ -24,9 +24,6 @@ No Installation is needed to use this project. If you would like to build on to 
 - Run "npm start"
 - Create an account and deploy to Heroku.
 
-## Original GitHub Group Project Link
-[Click to view our deployed GitHub Page](https://github.com/britt-young/get_your_list_together)
-
 ## Deployed Project Link
 [Click to view our deployed GitHub Page](https://get-your-list-together-c8df3b5b0755.herokuapp.com/login)
 
