@@ -1,0 +1,66 @@
+// LESS VARIABLES
+// Background Colors
+@main-bk: green;
+@sec-bk: #fff;
+@tri-bk: none;
+
+// Text Colors
+@main-text: #000;
+@sec-text: #fff;
+@tri-text: green;
+
+// Padding
+@main-p: 2%;
+@sec-p: 2% 1%;
+@tri-p: 0;
+
+// Margin
+@main-m: 0;
+@sec-m: auto;
+@tri-m: 2% auto;
+
+// Borders
+@border-radius: 10px;
+
+// BREAKPOINTS
+// DESKTOP
+@min770: ~"(min-width: 770px)";
+
+// TABLET/MOBILE
+@max769: ~"(max-width: 769px)";
+
+
+
+// Borders
+.border {
+    border-radius: @border-radius;
+    border: 0;
+};
+
+.borderTwo {
+    border-radius: @border-radius;
+    border: 2px solid green;
+};
+
+// Display styling
+.displayFlex {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+};
+
+.displayGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: left;
+};
+
+.displayBlock {
+    display: block;
+    justify-content: space-between;
+}
+
+.AlignContent {
+    justify-content: center;
+    text-align: center;
+}

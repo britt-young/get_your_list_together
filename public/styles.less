@@ -1,0 +1,373 @@
+// Import LESS variables
+@import "variables.less";
+
+* {
+    padding: @tri-p;
+    margin: @main-m;
+};
+
+header {
+    background-color: @main-bk;
+    color: @sec-text;
+    height: fit-content;
+    padding: @main-p;
+};
+
+
+// HEADER
+.header-content {
+    .displayFlex;
+    width: 95%;
+    height: auto;
+    margin: @sec-m;
+};
+
+header a {
+    background-color: @tri-bk;
+    padding: @sec-p;
+    margin: auto 0;
+    .border;
+    .AlignContent;
+    text-decoration: none;
+};
+
+header h1 {
+    font-size: 30px;
+    padding: 2% 0;
+};
+
+#button-link, .button-link {
+    background-color: @tri-bk;
+    color: @tri-text;
+    padding: @main-p;
+    .border;
+    width: 70px;
+};
+
+
+// MAIN
+main {
+    padding: @main-p;
+    text-align: center;
+    margin-bottom: 3rem;
+};
+
+main button {
+    background-color: @main-bk;
+    color: @sec-text;
+    padding: @sec-p;
+    margin: 2% 1%;
+    .border;
+};
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+};
+
+a {
+    background-color: @main-bk;
+    padding: @sec-p;
+    margin: @main-m;
+    .border;
+    text-decoration: none;
+};
+
+#name, #nav-link {
+    background-color: @tri-bk;
+    color: @sec-text;
+    padding: @tri-p;
+    margin: @main-m;
+    text-decoration: none;
+};
+
+#name, #price {
+    color: @main-text;
+    margin: @sec-m;
+};
+
+.landing-content{
+    padding: 3%;
+    margin: 0 auto 0 auto;
+    width: 80%;
+    max-width: 500px;
+};
+
+.produce-page {
+    margin: @tri-m;
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1200px;
+};
+
+.product-search, .shopping-cart {
+    padding: 1%;
+    margin: 2%;
+    .borderTwo;
+    width: 85%;
+    height: auto;
+    min-height: 600px;
+};
+
+.groceries {
+    min-height: 500px;
+};
+
+.groceries .product  {
+    .displayGrid;
+    padding: @main-p;
+};
+
+.search-bar {
+    margin: @sec-m;
+};
+
+.search-bar input {
+    padding: 1%;
+    width: 50%;
+};
+
+.product, .recipes-page .recipe {
+    padding: @tri-p;
+    margin: @tri-m;
+    .borderTwo;
+    .displayFlex;
+};
+
+.results .product  {
+    padding: @main-p;
+    margin: @tri-m;
+    .borderTwo;
+    .displayGrid;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.recipes-page .results {
+    margin: @tri-m;
+    .displayFlex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+};
+
+.recipes-page .recipe {
+    margin: 2% auto;
+    .displayBlock;
+    text-align: center;
+    max-width: 300px;
+    width: 250px;
+};
+
+.recipe img {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.recipe #choice {
+    padding: 2% 0;
+    margin: 3% auto;
+
+    .displayBlock;
+    width: 90%;
+};
+
+.item {
+    padding: @main-p;
+    margin: @sec-m;
+    .borderTwo;
+    .displayFlex;
+};
+
+.user-account, .user-cart {
+    margin: @tri-m;
+    .AlignContent;
+};
+
+.user-cart h2 {
+    margin: @tri-m;
+};
+
+.login-account, .create-account {
+    padding: @main-p;
+    margin: @tri-m;
+    .borderTwo;
+    width: 90%;
+    max-width: 700px;
+};
+
+.login-form div, .signup-form div {
+    padding: @sec-p;
+    .displayBlock;
+    width: 100%;
+};
+
+.budget {
+    margin: @sec-m;
+    .displayFlex;
+    width: 100%;
+    max-width: 550px;
+};
+
+.cart-results .product {
+    margin: @tri-m;
+    width: 90%;
+    max-width: 650px;
+    padding: 1%;
+};
+
+.cart-results .product h4 {
+    height: auto;
+    margin: @sec-m;
+}
+
+.results .product  {
+    .displayBlock;
+    text-align: center;
+    height: fit-content;
+    width: 95%;
+    min-width: 200px;
+    max-width: 500px;
+};
+
+#addItem, #removeItem {
+    width: 100%;
+    margin: @tri-m;
+    height: 25px;
+    max-width: 80px;
+};
+
+.product #removeItem {
+    padding: @tri-p;
+}
+
+#amountDiv {
+    margin: @sec-m;
+    display: flex;
+    flex-wrap: wrap;
+    .AlignContent;
+    width: fit-content;
+};
+
+.total-section {
+    padding: @main-p;
+    margin: @tri-m;
+    .borderTwo;
+    text-align: left;
+    width: 90%;
+    max-width: 650px;
+};
+
+.total-section h3 {
+    margin-bottom: 2%;
+};
+
+footer {
+    background-color: @main-bk;
+    color: @sec-text;
+    padding: @sec-p;
+    margin: @main-m;
+    .AlignContent;
+    height: 30px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+};
+
+// DESKTOP
+@media @min770 {
+    header {
+        padding: @main-p;
+        width: auto;
+        height: 50px;
+    };
+
+    .results .product  {
+        padding: @main-p;
+        margin: @tri-m;
+        .borderTwo;
+        .displayGrid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 2%;
+    };
+
+};
+
+// TABLET/MOBILE
+@media @max769 {
+    header {
+        padding: @sec-p;
+        margin: @main-m;
+        height: fit-content;
+        .AlignContent;
+    };
+
+    .header-content, .groceries {
+        display: flex;
+        flex-wrap: wrap
+    };
+
+    #nav-link {
+        font-size: 25px;
+        width: 100%;
+        max-width: 200px;
+    };
+
+    .groceries .product {
+        .displayBlock;
+        margin: @sec-m;
+        text-align: center;
+        height: fit-content;
+        width: 45%;
+        min-width: 200px;
+    };
+
+    .groceries .product h4, .groceries .product button  {
+        margin: 2%;
+        width: 98%;
+    };
+
+    .product-search, .shopping-cart {
+        padding: 1%;
+        margin: 2% auto;
+        .borderTwo;
+        width: 90%;
+        height: auto;
+        min-height: 600px;
+    };
+
+    .produce-page {
+        margin: @tri-m;
+        .displayBlock;
+        width: 100%;
+        .AlignContent;
+    };
+
+    .product-search, .shopping-cart {
+        max-width: 700px;
+        height: auto;
+    };
+
+    .results .product, .cart-results .product {
+        .displayBlock;
+        width: 95%;
+        grid-column-gap: none;
+        text-align: center
+    };
+
+    .recipe {
+        padding: @main-p;
+        margin: @sec-m;
+        .borderTwo;
+        .displayBlock;
+        text-align: center;
+        width: 250px;
+    };
+
+    .budget {
+        .displayBlock;
+        width: 98%;
+        max-width: 550px;
+        text-align: center;
+    };
+}
